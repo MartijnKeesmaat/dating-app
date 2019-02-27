@@ -1,0 +1,19 @@
+{
+  "name": "dating-app",
+  "version": "1.0.0",
+  "description": "A feature for a dating app ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartijnKeesmaat/dating-app.git"
+  },
+  "author": "Martijn Keesmaat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartijnKeesmaat/dating-app/issues"
+  },
+  "homepage": "https://github.com/MartijnKeesmaat/dating-app#readme"
+}
