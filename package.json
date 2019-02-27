@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MartijnKeesmaat/dating-app/issues"
   },
-  "homepage": "https://github.com/MartijnKeesmaat/dating-app#readme"
+  "homepage": "https://github.com/MartijnKeesmaat/dating-app#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
 }
