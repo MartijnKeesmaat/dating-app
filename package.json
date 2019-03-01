@@ -6,12 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MartijnKeesmaat/dating-app.git"
-  },
+  "repository": "MartijnKeesmaat/dating-app"
   "author": "Martijn Keesmaat",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MartijnKeesmaat/dating-app/issues"
   },
