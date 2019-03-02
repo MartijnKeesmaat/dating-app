@@ -6,13 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "MartijnKeesmaat/dating-app"
+  "repository": "MartijnKeesmaat/dating-app",
   "author": "Martijn Keesmaat",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/MartijnKeesmaat/dating-app/issues"
   },
   "homepage": "https://github.com/MartijnKeesmaat/dating-app#readme",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "tingle.js": "^0.14.0"
+  },
   "devDependencies": {
     "nodemon": "^1.18.10"
   }
