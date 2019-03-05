@@ -1,9 +1,2 @@
-// Load the core build.
-// var _ = require('lodash/core');
-import {
-  map,
-  tail,
-  times,
-  uniq
-} from 'lodash';
-console.log(_.chunk(['a', 'b', 'c', 'd'], 2));
+var _ = require('lodash');
+console.log(_.defaults({ a: 1 }, { a: 3, b: 2 }));
