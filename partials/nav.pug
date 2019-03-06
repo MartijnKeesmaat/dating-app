@@ -1,0 +1,6 @@
+nav
+  ul
+    - const nav = [{link: '/', text: 'Home'}, {link: 'profile', text: 'Profile'}]
+    each item in nav
+      li
+        a(href=`${item.link}`)= item.text
