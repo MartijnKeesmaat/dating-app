@@ -4,6 +4,7 @@
   "description": "A feature for a dating app ",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "MartijnKeesmaat/dating-app",
@@ -14,8 +15,12 @@
   },
   "homepage": "https://github.com/MartijnKeesmaat/dating-app#readme",
   "dependencies": {
-    "lodash": "^4.17.11",
-    "tingle.js": "^0.14.0"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
