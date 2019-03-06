@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  h1 Your page was not found 
+  - for(var i=0; i<9; i++)
+    img(src="/images/pug.gif")
+  
+  //- h1= message
+  //- h2= error.status
+  //- pre #{error.stack}
