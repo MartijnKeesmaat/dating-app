@@ -1,30 +1,14 @@
-# dating-app
+# Ice-breaker
 
-> A feature for a dating app
+> A dating app feature for getting to know people more easily.
 
-background details relevant to understanding what this module does
+When you have trouble connecting with people you don't know and want to start a conversation you can use the ice-breaker feature. When you see someone you want to connect with, you can send an ice-breaker. This is a series of image-pairs. You select the image that you like the most. When completed the series, it will be sent to the other person. So for example the you see two images, one of someone staying inside, watching a movie and an image of someone at a party. You click on the party and the other does as well, you will see the result. Now you have an easier way of starting the conversation because you both like to party 🎉
 
 ## Usage
-
-```js
-var datingApp = require('dating-app');
-
-console.log('hello warld');
-```
-
-outputs
-
-```
-hello warld
-```
+Will be updated if the feature is finished
 
 ## API
-
-```js
-var datingApp = require('dating-app');
-```
-
-See [api_formatting.md](api_formatting.md) for tips.
+Will be updated if the feature is finished
 
 ## Install
 
@@ -36,12 +20,12 @@ $ npm install dating-app
 
 ## Acknowledgments
 
-dating-app was inspired by..
+dating-app was inspired by [Parship](https://www.parship.nl/)
 
-## See Also
-
-- [`noffle/common-readme`](https://github.com/noffle/common-readme)
-- ...
+## Tech Stack
+- Node.js
+- Express
+- PUG
 
 ## License
 
