@@ -1,5 +1,33 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .icebreaker
+    .icebreaker__inner
+      h4 Maak kennis
+      h2 IJsbreker
+      
+      form
+        fieldset
+          legend Activity
+          input(type="radio", name="serie-1", value="home", id="home")
+          label(for="home") Stay home
+          input(type="radio", name="serie-1", value="camping" id="camping")
+          label(for="camping") Camping
+        
+        fieldset
+          legend Activity
+          input(type="radio", name="serie-2", value="workout", id="workout")
+          label(for="workout") Work out
+          input(type="radio", name="serie-2", value="movie" id="movie")
+          label(for="movie") Watch a movie
+
+        fieldset
+          legend Pet
+          input(type="radio", name="serie-3", value="cat", id="cat")
+          label(for="cat") Cat
+          input(type="radio", name="serie-3", value="dog" id="dog")
+          label(for="dog") Dog
+
+        <input type="submit" value="Submit">
+
+      button Ga terug
