@@ -6,6 +6,8 @@ When you have trouble connecting with people you don't know and want to start a 
 
 ![](https://github.com/MartijnKeesmaat/dating-app/blob/master/hosted-images/app/ice.jpg?raw=true)
 
+[👉 See walkthrough of the prototype](https://github.com/MartijnKeesmaat/dating-app/blob/master/hosted-images/app/proto.gif?raw=true)
+
 ## Usage
 Will be updated if the feature is finished
 
