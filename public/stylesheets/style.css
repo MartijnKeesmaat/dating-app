@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+* { box-sizing: border-box }
+
+label, input, textarea, button { margin: 10px 3px }
+
+input, textarea, button {
+  font-size: 1em;
+  padding: 0.5em;
+  border-width: 0;
+  border-radius: 0.25em;
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+

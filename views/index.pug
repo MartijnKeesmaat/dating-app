@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  a( href='/icebreaker') Add a movie
+
   each user in users
     a(href='/users/' + user.id)
       h1= user.name

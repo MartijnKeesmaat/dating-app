@@ -1,8 +1,19 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-// const slug = require('slug');
-// const bodyParser = require('body-parser');
+var slug = require('slug');
+var bodyParser = require('body-parser');
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+router.post('/icebreaker', urlencodedParser, function (req, res) {
+	if (!req.body) return res.sendStatus(400);
+	res.send('welcome, ' + req.body.q1);
+});
+
+router.get('/icebreaker', (req, res) => {
+	res.render('icebreaker');
+});
 
 // Routes
 router.get('/', (req, res) => {
@@ -21,16 +32,24 @@ router.get('/users/:id', function (req, res) {
 	});
 });
 
-// router.get('/profile', function (req, res) {
-// 	res.render('profile', {
-// 		title: 'Profile'
+
+
+// function add(req, res) {
+// 	var id = slug(req.body.title).toLowerCase();
+
+// 	data.push({
+// 		id: id,
+// 		title: req.body.title,
+// 		plot: req.body.plot,
+// 		description: req.body.description
 // 	});
-// });
 
-// Logic
+// 	res.redirect('/' + id);
+// }
+// // Data
+// let data = [];
 
-// Data
-// let formData = [];
+
 
 const users = [{
 	'id': 1,
