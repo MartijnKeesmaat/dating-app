@@ -8,8 +8,17 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 router.post('/icebreaker', urlencodedParser, function (req, res) {
 	if (!req.body) return res.sendStatus(400);
-	res.send('welcome, ' + req.body.q1);
+	data.push({
+		q1: req.body.q1,
+		q2: req.body.q2,
+		q3: req.body.q3
+	});
+	console.log(data);
+	res.send(`${req.body.q1}, ${req.body.q2}, ${req.body.q3}`);
+	res.render('icebreaker', data);
 });
+
+let data = [];
 
 router.get('/icebreaker', (req, res) => {
 	res.render('icebreaker');
@@ -33,21 +42,6 @@ router.get('/users/:id', function (req, res) {
 });
 
 
-
-// function add(req, res) {
-// 	var id = slug(req.body.title).toLowerCase();
-
-// 	data.push({
-// 		id: id,
-// 		title: req.body.title,
-// 		plot: req.body.plot,
-// 		description: req.body.description
-// 	});
-
-// 	res.redirect('/' + id);
-// }
-// // Data
-// let data = [];
 
 
 
