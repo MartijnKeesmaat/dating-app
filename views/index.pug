@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  each person in people
-    h1= person.name
-    a(href=`${person.email}`)= person.email
+  each user in users
+    h1= user.name
+    a(href='/users/' + user.id) #{user.name}
 
-    each val, index in person.address
+    each val, index in user.address
       ul: li= val
