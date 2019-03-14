@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 var slug = require('slug');
 var bodyParser = require('body-parser');
-
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 router.post('/icebreaker', urlencodedParser, function (req, res) {
@@ -20,19 +19,19 @@ router.post('/icebreaker', urlencodedParser, function (req, res) {
 
 let data = [];
 
-router.get('/icebreaker', (req, res) => {
+router.get('/icebreaker', res => {
 	res.render('icebreaker');
 });
 
 // Routes
-router.get('/', (req, res) => {
+router.get('/', res => {
 	res.render('index', {
 		title: 'Dating app',
 		users
 	});
 });
 
-router.get('/users/:id', function (req, res) {
+router.get('/users/:id', (req, res) => {
 	const id = req.params.id;
 	res.render('profile', {
 		title: 'Profile',
@@ -40,9 +39,6 @@ router.get('/users/:id', function (req, res) {
 		id
 	});
 });
-
-
-
 
 
 const users = [{
@@ -90,6 +86,7 @@ const users = [{
 		'bs': 'synergize scalable supply-chains'
 	}
 }];
+
 
 module.exports = router;
 
