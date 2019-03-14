@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-var slug = require('slug');
+// var slug = require('slug');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -19,12 +19,12 @@ router.post('/icebreaker', urlencodedParser, function (req, res) {
 
 let data = [];
 
-router.get('/icebreaker', res => {
+router.get('/icebreaker', (req, res) => {
 	res.render('icebreaker');
 });
 
 // Routes
-router.get('/', res => {
+router.get('/', (req, res) => {
 	res.render('index', {
 		title: 'Dating app',
 		users
