@@ -11,6 +11,7 @@ module.exports = {
 	},
 
 	'rules': {
+		'no-console': 'warn',
 		'indent': [
 			'error',
 			'tab'
