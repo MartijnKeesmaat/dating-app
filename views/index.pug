@@ -2,8 +2,10 @@ extends layout
 
 block content
   each user in users
-    h1= user.name
-    a(href='/users/' + user.id) #{user.name}
-
-    each val, index in user.address
-      ul: li= val
+    a(href='/users/' + user.id)
+      h1= user.name
+    
+    p= `@${user.username}`
+    ul
+      li= user.website
+      li= user.email
