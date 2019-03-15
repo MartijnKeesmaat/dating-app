@@ -9,24 +9,34 @@ block content
       form(action="/icebreaker" method="post")
         fieldset
           legend Activity
-          input(type="radio", name="q1", value="home", id="home")
-          label(for="home") Stay home
-          input(type="radio", name="q1", value="camping" id="camping")
-          label(for="camping") Camping
+          
+          label(for="home")
+            input(type="radio", name="q1", value="home", id="home")
+            img(src="images/camping.jpg" alt="camping")
+
+          label(for="camping")
+            input(type="radio", name="q1", value="camping" id="camping")
+            img(src="images/party.jpg" alt="camping")
         
         fieldset
           legend Activity
-          input(type="radio", name="q2", value="workout", id="workout")
-          label(for="workout") Work out
-          input(type="radio", name="q2", value="movie" id="movie")
-          label(for="movie") Watch a movie
+          label(for="workout")
+            input(type="radio", name="q2", value="workout", id="workout")
+            img(src="images/party.jpg" alt="camping")
+
+          label(for="movie")
+            input(type="radio", name="q2", value="movie" id="movie")
+            img(src="images/party.jpg" alt="camping")
 
         fieldset
           legend Pet
-          input(type="radio", name="q3", value="cat", id="cat")
-          label(for="cat") Cat
-          input(type="radio", name="q3", value="dog" id="dog")
-          label(for="dog") Dog
+          label(for="cat")
+            input(type="radio", name="q3", value="cat", id="cat")
+            img(src="images/party.jpg" alt="camping")
+
+          label(for="dog")
+            input(type="radio", name="q3", value="dog" id="dog")
+            img(src="images/party.jpg" alt="camping")
 
         input(type="submit" value="Submit")
 

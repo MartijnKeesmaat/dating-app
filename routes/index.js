@@ -13,8 +13,10 @@ router.post('/icebreaker', urlencodedParser, function (req, res) {
 		q3: req.body.q3
 	});
 	console.log(data);
-	res.send(`${req.body.q1}, ${req.body.q2}, ${req.body.q3}`);
-	res.render('icebreaker', data);
+	res.render('index-test-data', {
+		data,
+		users
+	});
 });
 
 let data = [];
