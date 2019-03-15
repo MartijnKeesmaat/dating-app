@@ -1,0 +1,6 @@
+{
+  "parser": "sugarss",
+  "plugins": {
+    "precss": {}
+  }
+}

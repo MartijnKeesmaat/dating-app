@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon ./bin/www",
+    "postcss": "postcss -o public/stylesheets/output/style.css public/stylesheets/style.sss -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "MartijnKeesmaat/dating-app",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "eslint": "^5.15.1",
     "eslint-plugin-import": "^2.16.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "sugarss": "^2.0.0"
   }
 }
