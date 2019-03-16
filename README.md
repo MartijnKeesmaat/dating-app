@@ -17,6 +17,17 @@ With [npm](https://npmjs.org/) installed, run
 $ npm install dating-app
 ```
 
+## Dev
+Start server
+``` 
+$ DEBUG=testgen:* npm start
+```
+
+Compile css 
+``` 
+$ npm run postcss 
+```
+
 ## Acknowledgments
 
 - The feature was inspired by [Parship](https://www.parship.nl/)
