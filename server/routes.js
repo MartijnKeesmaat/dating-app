@@ -30,7 +30,7 @@ router.get('/users/:id', (req, res) => {
 // Get data from icebreaker
 let iceBreakerData = [];
 
-router.post('/icebreaker', urlencodedParser, function (req, res) {
+router.post('/icebreaker', urlencodedParser, (req, res) => {
 	if (!req.body) return res.sendStatus(400);
 	iceBreakerData.push({
 		q1: req.body.q1,
