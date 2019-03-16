@@ -2,6 +2,7 @@
   "parser": "sugarss",
   "plugins": {
     postcss-easy-import,
-    precss
+    cssnano,
+    postcss-cssnext
   }
 }

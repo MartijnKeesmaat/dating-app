@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon ./bin/www",
-    "postcss": "postcss -o public/stylesheets/output/style.css public/stylesheets/style.sss -w",
+    "postcss": "postcss -o public/stylesheets/output/style.css public/stylesheets/index.sss -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "MartijnKeesmaat/dating-app",
@@ -25,10 +25,12 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "eslint": "^5.15.1",
     "eslint-plugin-import": "^2.16.0",
     "nodemon": "^1.18.10",
     "postcss": "^7.0.14",
+    "postcss-cssnext": "^3.1.0",
     "postcss-easy-import": "^3.0.0",
     "precss": "^4.0.0",
     "sugarss": "^2.0.0"
