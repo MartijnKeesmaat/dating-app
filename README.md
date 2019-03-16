@@ -6,11 +6,8 @@ When you have trouble connecting with people you don't know and want to start a 
 
 ![](https://github.com/MartijnKeesmaat/dating-app/blob/master/hosted-images/app/proto.gif?raw=true)
 
-## Usage
-Will be updated if the feature is finished
-
-## API
-Will be updated if the feature is finished
+## Wiki
+Check the [wiki](https://github.com/MartijnKeesmaat/dating-app/wiki) for the process
 
 ## Install
 
