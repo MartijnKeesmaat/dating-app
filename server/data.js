@@ -43,3 +43,5 @@ const users = [{
 		'bs': 'synergize scalable supply-chains'
 	}
 }];
+
+module.exports = users;
