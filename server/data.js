@@ -1,48 +1,3 @@
-'use strict';
-const express = require('express');
-const router = express.Router();
-// var slug = require('slug');
-var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
-router.post('/icebreaker', urlencodedParser, function (req, res) {
-	if (!req.body) return res.sendStatus(400);
-	data.push({
-		q1: req.body.q1,
-		q2: req.body.q2,
-		q3: req.body.q3
-	});
-	console.log(data);
-	res.render('index-test-data', {
-		data,
-		users
-	});
-});
-
-let data = [];
-
-router.get('/icebreaker', (req, res) => {
-	res.render('icebreaker');
-});
-
-// Routes
-router.get('/', (req, res) => {
-	res.render('index', {
-		title: 'Dating app',
-		users
-	});
-});
-
-router.get('/users/:id', (req, res) => {
-	const id = req.params.id;
-	res.render('profile', {
-		title: 'Profile',
-		users,
-		id
-	});
-});
-
-
 const users = [{
 	'id': 1,
 	'name': 'Leanne Graham',
@@ -88,8 +43,3 @@ const users = [{
 		'bs': 'synergize scalable supply-chains'
 	}
 }];
-
-
-module.exports = router;
-
-
