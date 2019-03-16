@@ -1,3 +1,6 @@
 {
-  "parser": "sugarss"
+  "parser": "sugarss",
+  "plugins": {
+    postcss-easy-import
+  }
 }
