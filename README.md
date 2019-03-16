@@ -22,12 +22,8 @@ $ npm install dating-app
 
 ## Acknowledgments
 
-This feature was inspired by [Parship](https://www.parship.nl/)
-
-## Tech Stack
-- Node.js
-- Express
-- PUG
+- The feature was inspired by [Parship](https://www.parship.nl/)
+- Wiki structure inspiration: [@iSirThijs](https://github.com/iSirThijs/pt-tech/wiki)
 
 ## License
 
