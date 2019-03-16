@@ -28,7 +28,9 @@
     "eslint": "^5.15.1",
     "eslint-plugin-import": "^2.16.0",
     "nodemon": "^1.18.10",
+    "postcss": "^7.0.14",
     "postcss-easy-import": "^3.0.0",
+    "precss": "^4.0.0",
     "sugarss": "^2.0.0"
   }
 }
