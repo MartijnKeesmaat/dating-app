@@ -5,7 +5,8 @@ html
     link(rel='stylesheet', href='/stylesheets/output/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
 
-  body
+  body(class="is-icebreaker-active js-enabled")
+    .icebreaker-overlay
     include partials/nav
     block content
 

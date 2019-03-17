@@ -39,20 +39,21 @@ block content
 
     .icebreaker
       .icebreaker__inner
-        h4 Maak kennis
+        h4 Set: 1 van de 3
         h2 Ice-breaker
         
         form(action="/icebreaker" method="post")
           fieldset
             legend Activity
             
+            label(for="camping")
+              input(type="radio", name="q1", value="camping" id="camping")
+              img(src="images/party.jpg" alt="camping")
+
             label(for="home")
               input(type="radio", name="q1", value="home", id="home")
               img(src="images/camping.jpg" alt="camping")
 
-            label(for="camping")
-              input(type="radio", name="q1", value="camping" id="camping")
-              img(src="images/party.jpg" alt="camping")
           
           fieldset
             legend Activity

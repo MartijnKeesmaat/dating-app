@@ -138,4 +138,91 @@ p {
   margin-top: 5px;
 }
 
+.js-enabled.is-icebreaker-active .icebreaker-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+.js-enabled.is-icebreaker-active .icebreaker {
+  visibility: visible;
+  opacity: 1;
+  transoform: translateY(0px);
+}
+
+.js-enabled .icebreaker-overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s all ease;
+}
+.js-enabled .icebreaker {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  z-index: 10;
+  background: #fff;
+  max-width: 80%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s all ease;
+  transoform: translateY(10px);
+}
+.js-enabled .icebreaker .icebreaker__inner {
+  padding: 40px;
+  padding-bottom: 25px;
+}
+.js-enabled .icebreaker .icebreaker__inner h4 {
+  color: var(--color-main);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-bottom: 0.6em;
+  opacity: 0.7;
+}
+.js-enabled .icebreaker .icebreaker__inner h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+.js-enabled .icebreaker .icebreaker__inner form fieldset {
+  display: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.js-enabled .icebreaker .icebreaker__inner form fieldset:first-child {
+  display: block;
+}
+.js-enabled .icebreaker .icebreaker__inner form fieldset legend {
+  display: none;
+}
+.js-enabled .icebreaker .icebreaker__inner form fieldset label input[type=radio] {
+  display: none;
+}
+.js-enabled .icebreaker .icebreaker__inner form fieldset label img {
+  max-width: 100%;
+}
+.js-enabled .icebreaker .icebreaker__inner form input[type=submit] {
+  display: none;
+}
+.js-enabled .icebreaker .icebreaker__inner button {
+  border: none;
+  text-align: center;
+  width: 100%;
+  color: var(--color-body);
+  font-size: 1.1rem;
+  margin-top: 15px;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
 /*# sourceMappingURL=style.css.map */
