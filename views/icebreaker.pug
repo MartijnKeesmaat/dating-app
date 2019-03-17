@@ -4,75 +4,76 @@ block content
   .profile-header
     img(src="images/users/profile-1.jpg")
 
-  .profile-intro
-    .profile-intro__left
-      h1 Amelia Cabal
-      small Fotograaf  
+  main.main-content
+    .profile-intro
+      .profile-intro__left
+        h1 Amelia Cabal
+        small Fotograaf  
 
-    .profile-intro__right
-      img(src="images/icons/heart.svg" alt="like")
-      img(src="images/icons/chat.svg" alt="comment")
-      img(src="images/icons/match-meter.svg" alt="match score")
+      .profile-intro__right
+        img(src="images/icons/heart.svg" alt="like")
+        img(src="images/icons/chat.svg" alt="comment")
+        img(src="images/icons/match-meter.svg" alt="match score")
 
-  .profile-meta
-    .profile-meta__item
-      h3 22 
-        small Jaar
+    .profile-meta
+      .profile-meta__item
+        h3 22 
+          small Jaar
 
-    .profile-meta__item
-      h3 HBO 
-        small Opleiding
+      .profile-meta__item
+        h3 HBO 
+          small Opleiding
 
-    .profile-meta__item
-      h3 18km 
-        small Afstand                
+      .profile-meta__item
+        h3 18km 
+          small Afstand                
 
-  .profile-about
-    h2 Over mij
-    p In mijn vrije tijd ben ik graag met goede vrienden, sport ik, kijk ik een serie of bedenk ik leuke plannen met mijn huisgenoot (die we bijna nooit uitvoeren). Ik probeer meer te lezen maar heb daar vaak niet de rust voor. Mijn positieve kanten zijn dat ik positief, vrolijk, betrouwbaar en open-minded ben. Ik ben meestal rustig maar als ik me op mijn gemak voel kom ik los. Ik hou van mensen met zelfspot en vind het fijn als een man regelmatig initiatief neemt om dingen te doen.
+    .profile-about
+      h2 Over mij
+      p In mijn vrije tijd ben ik graag met goede vrienden, sport ik, kijk ik een serie of bedenk ik leuke plannen met mijn huisgenoot (die we bijna nooit uitvoeren). Ik probeer meer te lezen maar heb daar vaak niet de rust voor. Mijn positieve kanten zijn dat ik positief, vrolijk, betrouwbaar en open-minded ben. Ik ben meestal rustig maar als ik me op mijn gemak voel kom ik los. Ik hou van mensen met zelfspot en vind het fijn als een man regelmatig initiatief neemt om dingen te doen.
 
-  .profile-gallery
-    img(src="images/users/profile-1a.jpg" alt="")
-    img(src="images/users/profile-1b.jpg" alt="")
-    img(src="images/users/profile-1c.jpg" alt="")
+    .profile-gallery
+      img(src="images/users/profile-1a.jpg" alt="")
+      img(src="images/users/profile-1b.jpg" alt="")
+      img(src="images/users/profile-1c.jpg" alt="")
 
-  .icebreaker
-    .icebreaker__inner
-      h4 Maak kennis
-      h2 Ice-breaker
-      
-      form(action="/icebreaker" method="post")
-        fieldset
-          legend Activity
-          
-          label(for="home")
-            input(type="radio", name="q1", value="home", id="home")
-            img(src="images/camping.jpg" alt="camping")
-
-          label(for="camping")
-            input(type="radio", name="q1", value="camping" id="camping")
-            img(src="images/party.jpg" alt="camping")
+    .icebreaker
+      .icebreaker__inner
+        h4 Maak kennis
+        h2 Ice-breaker
         
-        fieldset
-          legend Activity
-          label(for="workout")
-            input(type="radio", name="q2", value="workout", id="workout")
-            img(src="images/party.jpg" alt="camping")
+        form(action="/icebreaker" method="post")
+          fieldset
+            legend Activity
+            
+            label(for="home")
+              input(type="radio", name="q1", value="home", id="home")
+              img(src="images/camping.jpg" alt="camping")
 
-          label(for="movie")
-            input(type="radio", name="q2", value="movie" id="movie")
-            img(src="images/party.jpg" alt="camping")
+            label(for="camping")
+              input(type="radio", name="q1", value="camping" id="camping")
+              img(src="images/party.jpg" alt="camping")
+          
+          fieldset
+            legend Activity
+            label(for="workout")
+              input(type="radio", name="q2", value="workout", id="workout")
+              img(src="images/party.jpg" alt="camping")
 
-        fieldset
-          legend Pet
-          label(for="cat")
-            input(type="radio", name="q3", value="cat", id="cat")
-            img(src="images/party.jpg" alt="camping")
+            label(for="movie")
+              input(type="radio", name="q2", value="movie" id="movie")
+              img(src="images/party.jpg" alt="camping")
 
-          label(for="dog")
-            input(type="radio", name="q3", value="dog" id="dog")
-            img(src="images/party.jpg" alt="camping")
+          fieldset
+            legend Pet
+            label(for="cat")
+              input(type="radio", name="q3", value="cat", id="cat")
+              img(src="images/party.jpg" alt="camping")
 
-        input(type="submit" value="Submit")
+            label(for="dog")
+              input(type="radio", name="q3", value="dog" id="dog")
+              img(src="images/party.jpg" alt="camping")
 
-      button Ga terug
+          input(type="submit" value="Submit")
+
+        button Ga terug

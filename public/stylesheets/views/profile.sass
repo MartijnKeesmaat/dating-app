@@ -1,27 +1,86 @@
 .profile-header
+
   img
     width: 100%
 
 .profile-intro
-  .profile-intro__left
-    h1
+  display: flex
+  justify-content: space-between
+  align-items: center
 
-  .profile-intro__right
+  &__left
+    h1
+      margin-bottom: .3em
+      margin-top: 0
+
+    small
+      font-size: 1.1rem
+
+  &__right
     img
+      height: 25px
+      margin-right: 15px
+
+      &:last-child
+        margin-right: 0
 
 .profile-meta
-  .profile-meta__item
-    h3
+  display: flex
+  margin-top: 15px
 
-  .profile-meta__item
-    h3
+  &__item
+    background: var(--color-bg)
+    border-radius: 4px 
+    margin-right: 15px
+    padding: 10px
+    width: 90px
+    height: 90px
+    text-align: center
+    display: flex
+    justify-content: center
+    align-items: center
     
-  .profile-meta__item
-    h3 
+    &:last-child
+      margin-right: 0
+    
+    h3
+      color: var(--color-main)
+      font-weight: 400
+      font-size: 1rem
+      margin: 0
+
+      small
+        color: var(--color-body)
+        display: block
+        font-weight: 500
+        margin-top: 5px
 
 .profile-about
+  margin-top: 30px
+
   h2
+    margin: 0
+    margin-bottom: 8px
   p
+    margin: 0
 
 .profile-gallery
+  display: flex
+  flex-wrap: wrap
+  margin-top: 30px
+  
   img
+    object-fit: cover
+    height: 180px
+    border-radius: 7px
+
+    &:nth-child(1)
+      margin-right: 5px
+
+    &:nth-child(1),
+    &:nth-child(2)
+      width: calc(50% - 2.5px)
+
+    &:nth-child(3)
+      width: 100%
+      margin-top: 5px
