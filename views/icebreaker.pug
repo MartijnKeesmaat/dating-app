@@ -12,7 +12,7 @@ block content
 
       .profile-intro__right
         img(src="images/icons/heart.svg" alt="like")
-        img(src="images/icons/chat.svg" alt="comment")
+        img(src="images/icons/chat.svg" alt="comment" class="icebreaker__open")
         img(src="images/icons/match-meter.svg" alt="match score")
 
     .profile-meta
@@ -38,6 +38,8 @@ block content
       img(src="images/users/profile-1c.jpg" alt="")
 
     .icebreaker
+      progress(value="25" max="100")
+
       .icebreaker__inner
         h4 Set: 1 van de 3
         h2 Ice-breaker
@@ -80,4 +82,4 @@ block content
               a(href="#") Amelia Cabal
             input(type="submit" value="Verstuur ice-breaker")
 
-        button Ga terug
+        button(class="icebreaker__back icebreaker__close") Ga terug
