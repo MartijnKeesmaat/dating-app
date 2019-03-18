@@ -33,13 +33,14 @@
     z-index: 10
     background: #fff
     max-width: 80%
+    width: 400px
     visibility: hidden
     opacity: 0
     transition: .3s all ease
     transoform: translateY(10px)
 
     .icebreaker__inner
-      padding: 40px
+      padding: 40px 45px 
       padding-bottom: 25px
 
       h4
@@ -50,9 +51,13 @@
         margin-bottom: 0.6em
         opacity: 0.7
 
+      p.feedback
+        margin-top: 0
+
       h2
         font-size: 2rem
         margin-top: 0
+        margin-bottom: 0.6em
       
       form
         fieldset
@@ -61,7 +66,7 @@
           padding: 0
           margin: 0
 
-          &:first-child
+          &.active
             display: block
 
           legend
@@ -74,8 +79,8 @@
             img
               max-width: 100%
         
-        input[type="submit"]
-          display: none
+        // input[type="submit"]
+        //   display: none
 
       button
         border: none

@@ -26,6 +26,22 @@ main.main-content {
   margin: 0 auto;
 }
 
+input[type=submit] {
+  border-radius: 50px;
+  width: 100%;
+  background: var(--color-main);
+  color: #fff;
+  padding: 1em;
+  border: none;
+  box-shadow: 2px 2px 14px rgba(var(--color-main), 0.6);
+  transition: 0.3s all ease;
+  text-align: center;
+}
+input[type=submit]:hover {
+  background: #FE6352;
+  box-shadow: 2px 2px 20px rgba(var(--color-main), 0.4);
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-body);
@@ -172,13 +188,14 @@ p {
   z-index: 10;
   background: #fff;
   max-width: 80%;
+  width: 400px;
   visibility: hidden;
   opacity: 0;
   transition: 0.3s all ease;
   transoform: translateY(10px);
 }
 .js-enabled .icebreaker .icebreaker__inner {
-  padding: 40px;
+  padding: 40px 45px;
   padding-bottom: 25px;
 }
 .js-enabled .icebreaker .icebreaker__inner h4 {
@@ -189,9 +206,13 @@ p {
   margin-bottom: 0.6em;
   opacity: 0.7;
 }
+.js-enabled .icebreaker .icebreaker__inner p.feedback {
+  margin-top: 0;
+}
 .js-enabled .icebreaker .icebreaker__inner h2 {
   font-size: 2rem;
   margin-top: 0;
+  margin-bottom: 0.6em;
 }
 .js-enabled .icebreaker .icebreaker__inner form fieldset {
   display: none;
@@ -199,7 +220,7 @@ p {
   padding: 0;
   margin: 0;
 }
-.js-enabled .icebreaker .icebreaker__inner form fieldset:first-child {
+.js-enabled .icebreaker .icebreaker__inner form fieldset.active {
   display: block;
 }
 .js-enabled .icebreaker .icebreaker__inner form fieldset legend {
@@ -210,9 +231,6 @@ p {
 }
 .js-enabled .icebreaker .icebreaker__inner form fieldset label img {
   max-width: 100%;
-}
-.js-enabled .icebreaker .icebreaker__inner form input[type=submit] {
-  display: none;
 }
 .js-enabled .icebreaker .icebreaker__inner button {
   border: none;

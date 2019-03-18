@@ -43,38 +43,41 @@ block content
         h2 Ice-breaker
         
         form(action="/icebreaker" method="post")
-          fieldset
+          fieldset(class="active")
             legend Activity
             
             label(for="camping")
-              input(type="radio", name="q1", value="camping" id="camping")
+              input(type="radio", name="q1", value="camping" id="camping" class="ice-q")
               img(src="images/party.jpg" alt="camping")
 
             label(for="home")
-              input(type="radio", name="q1", value="home", id="home")
+              input(type="radio", name="q1", value="home", id="home" class="ice-q")
               img(src="images/camping.jpg" alt="camping")
 
           
           fieldset
             legend Activity
             label(for="workout")
-              input(type="radio", name="q2", value="workout", id="workout")
+              input(type="radio", name="q2", value="workout", id="workout" class="ice-q")
               img(src="images/party.jpg" alt="camping")
 
             label(for="movie")
-              input(type="radio", name="q2", value="movie" id="movie")
-              img(src="images/party.jpg" alt="camping")
+              input(type="radio", name="q2", value="movie" id="movie" class="ice-q")
+              img(src="images/gym.jpg" alt="camping")
 
           fieldset
             legend Pet
             label(for="cat")
-              input(type="radio", name="q3", value="cat", id="cat")
-              img(src="images/party.jpg" alt="camping")
+              input(type="radio", name="q3", value="cat", id="cat" class="ice-q")
+              img(src="images/yoga.jpg" alt="camping")
 
             label(for="dog")
-              input(type="radio", name="q3", value="dog" id="dog")
+              input(type="radio", name="q3", value="dog" id="dog" class="ice-q")
               img(src="images/party.jpg" alt="camping")
 
-          input(type="submit" value="Submit")
+          fieldset
+            p.feedback Je hebt alle vragen beantwoord. Jouw ijsbreker zal worden verstuurd naar 
+              a(href="#") Amelia Cabal
+            input(type="submit" value="Verstuur ice-breaker")
 
         button Ga terug
