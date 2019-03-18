@@ -252,6 +252,7 @@ p {
   font-weight: 600;
   transition: 0.3s all ease;
   cursor: pointer;
+  background: none;
 }
 .js-enabled .icebreaker__back:hover {
   opacity: 0.3;
