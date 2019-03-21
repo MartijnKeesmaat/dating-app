@@ -21,9 +21,17 @@ MongoClient.connect(url, function (err, db) {
 	assert.equal(null, err);
 	console.log('Connected successfully to server');
 
+	// insertDocuments(db, function () {
+	// 	findDocuments(db, function () {
+	// 		db.close();
+	// 	});
+	// });
+
 	insertDocuments(db, function () {
-		findDocuments(db, function () {
-			db.close();
+		updateDocument(db, function () {
+			removeDocument(db, function () {
+				db.close();
+			});
 		});
 	});
 });
@@ -71,7 +79,31 @@ var findDocuments = function (db, callback) {
 	});
 };
 
+var updateDocument = function (db, callback) {
+	// Get the documents collection
+	var collection = db.collection('documents');
+	// Update document where a is 2, set b equal to 1
+	collection.updateOne({ a: 2 }
+		, { $set: { b: 1 } }, function (err, result) {
+			assert.equal(err, null);
+			assert.equal(1, result.result.n);
+			console.log('Updated the document with the field a equal to 2');
+			callback(result);
+		});
+};
 
+
+var removeDocument = function (db, callback) {
+	// Get the documents collection
+	var collection = db.collection('documents');
+	// Delete document where a is 3
+	collection.deleteOne({ a: 3 }, function (err, result) {
+		assert.equal(err, null);
+		assert.equal(1, result.result.n);
+		console.log('Removed the document with the field a equal to 3');
+		callback(result);
+	});
+};
 
 
 // view engine setup
