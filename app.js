@@ -5,6 +5,31 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./server/routes');
 const app = express();
+// const multer = require('multer');
+// const mongo = require('mongodb');
+
+// require('dotenv').config();
+
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017/icebreaker';
+
+// Use connect method to connect to the server
+MongoClient.connect(url, function (err, db) {
+	assert.equal(null, err);
+	console.log('Connected successfully to server');
+
+	db.close();
+});
+
+
+
+
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,3 +62,5 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
+

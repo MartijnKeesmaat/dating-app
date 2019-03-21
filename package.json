@@ -4,7 +4,7 @@
   "description": "A feature for a dating app ",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "set NODE_ENV=dev && nodemon ./bin/www",
     "sass": "sass --watch public/stylesheets/index.sass public/stylesheets/output/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,7 @@
     "http-errors": "~1.6.2",
     "mongodb": "^3.1.13",
     "morgan": "~1.9.0",
+    "multer": "^1.4.1",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
