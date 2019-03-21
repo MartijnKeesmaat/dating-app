@@ -22,7 +22,9 @@ MongoClient.connect(url, function (err, db) {
 	console.log('Connected successfully to server');
 
 	insertDocuments(db, function () {
-		db.close();
+		findDocuments(db, function () {
+			db.close();
+		});
 	});
 });
 
@@ -42,6 +44,32 @@ var insertDocuments = function (db, callback) {
 	});
 };
 
+
+// Find all arrs
+// var findDocuments = function (db, callback) {
+// 	// Get the documents collection
+// 	var collection = db.collection('documents');
+// 	// Find some documents
+// 	collection.find({}).toArray(function (err, docs) {
+// 		assert.equal(err, null);
+// 		console.log('Found the following records');
+// 		console.log(docs);
+// 		callback(docs);
+// 	});
+// };
+
+// Find specific key value pair
+var findDocuments = function (db, callback) {
+	// Get the documents collection
+	var collection = db.collection('documents');
+	// Find some documents
+	collection.find({ 'a': 3 }).toArray(function (err, docs) {
+		assert.equal(err, null);
+		console.log('Found the following records');
+		console.log(docs);
+		callback(docs);
+	});
+};
 
 
 
