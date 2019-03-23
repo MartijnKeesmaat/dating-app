@@ -45,6 +45,16 @@ input[type=submit]:hover {
   box-shadow: 2px 2px 20px rgba(var(--color-main), 0.4);
 }
 
+input {
+  background: hotpink;
+  display: block;
+  width: 80%;
+  padding: 1em;
+  margin: 10px;
+  margin-bottom: 30px;
+  border: none;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-body);
@@ -480,6 +490,12 @@ p {
 .main-nav ul {
   margin: 0;
   left: 0;
+  width: 100%;
+  margin: 0;
+  left: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
 }
 .main-nav li {
   list-style: none;
