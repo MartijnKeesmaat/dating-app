@@ -6,7 +6,7 @@ block content
     h2 Vind partners
     h1 Zoeken
 
-    each user in users
+    each user in data.users
       article.user
         a(href='/users/' + user.id)
           img(class="user__display" src=user.images.display)

@@ -1,15 +1,20 @@
+//- each answer in iceBreakerData.images
+//-   img(src= answer)
+
 extends layout
 
 block content
-  - const user = data.users[id-1]
+  - const profile = data.profile
+  .msg= `${data.users[0].name} heeft gereageerd` 
+
   .profile-header
-    img(src=user.images.display)
+    img(src=profile.images.display)
 
   main.main-content
     .profile-intro
       .profile-intro__left
-        h1= user.name
-        small= user.job
+        h1= profile.name
+        small= profile.job  
 
       .profile-intro__right
         img(src="/images/icons/heart.svg" alt="like")

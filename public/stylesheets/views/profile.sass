@@ -2,6 +2,8 @@
 
   img
     width: 100%
+    height: 300px
+    object-fit: cover
 
 .profile-intro
   display: flex
@@ -15,6 +17,8 @@
 
     small
       font-size: 1.1rem
+      max-width: 160px
+      display: inline-block
 
   &__right
     min-width: 138px
@@ -90,3 +94,24 @@
 main.main-content
   @media(max-width: 450px)
     padding: 40px
+
+
+.msg
+  background: var(--color-secundary)
+  padding: 17px 20px 13px 20px
+  border-radius: 6px 0px 0px 6px
+  font-weight: 500
+  position: fixed
+  opacity: 0
+  animation: slide-left .66s forwards 3s
+  width: 100%
+  text-align: center
+
+@keyframes slide-left
+  from
+    transform: translateX(100%)
+    opacity: 0
+
+  to
+    transform: translateX(0)
+    opacity: 1

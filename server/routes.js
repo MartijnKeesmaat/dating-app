@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-const users = require('./data');
+const data = require('./data');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -12,37 +12,35 @@ router.get('/icebreaker', (req, res) => {
 // Routes
 router.get('/', (req, res) => {
 	res.render('index', {
-		title: 'Dating app',
-		users
+		data
 	});
 });
 
 router.get('/users/:id', (req, res) => {
 	const id = req.params.id;
 	res.render('profile', {
-		title: 'Profile',
-		users,
+		data,
 		id
 	});
 });
 
 
 // Get data from icebreaker
-let iceBreakerData = [];
+let iceBreakerData = {
+	images: []
+};
 
 router.post('/icebreaker', urlencodedParser, (req, res) => {
 	if (!req.body) return res.sendStatus(400);
-	console.log('data below');
-	console.log(req.body);
-	iceBreakerData = [];
-	iceBreakerData.push({
-		q1: req.body.q1,
-		q2: req.body.q2,
-		q3: req.body.q3
-	});
-	res.render('index-test-data', {
+	iceBreakerData.images = []; // reset data
+	iceBreakerData.images.push(
+		`/images/${req.body.q1}.jpg`,
+		`/images/${req.body.q2}.jpg`,
+		`/images/${req.body.q3}.jpg`
+	);
+	res.render('profile-resp', {
 		iceBreakerData,
-		users
+		data
 	});
 });
 
