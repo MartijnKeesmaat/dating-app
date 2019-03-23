@@ -1,13 +1,22 @@
 extends layout
 
 block content
-  //- a( href='/icebreaker') Fill in form
 
-  each user in users
-    a(href='/users/' + user.id)
-      h1= user.name
-    
-    p= `@${user.username}`
-    ul
-      li= user.website
-      li= user.email
+  .overview
+    h2 Vind partners
+    h1 Zoeken
+
+    each user in users
+      article.user
+        a(href='/users/' + user.id)
+          img(class="user__display" src=user.images.display)
+          
+          .user__info
+            .user__desc
+              h3= user.name
+              p= user.job
+
+            .user__actions
+              img(src="/images/icons/heart.svg" alt="like")
+              img(src="/images/icons/chat.svg" alt="comment")
+              img(src="/images/icons/match-meter.svg" alt="match score")
