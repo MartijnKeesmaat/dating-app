@@ -223,18 +223,69 @@ p {
   }
 }
 
-.msg {
+.ice-breaker--msg {
   background: var(--color-secundary);
   padding: 17px 20px 13px 20px;
   border-radius: 6px 0px 0px 6px;
-  font-weight: 500;
   position: fixed;
   opacity: 0;
-  animation: slide-left 0.66s forwards 3s;
   width: 100%;
   text-align: center;
+  transition: 0.6s all ease;
+  top: 0;
+  opacity: 1;
+}
+.ice-breaker--msg .ice-breaker-r {
+  display: none;
+}
+.ice-breaker--msg .ice-breaker-r img {
+  max-width: 100%;
+}
+.ice-breaker--msg p {
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+.ice-breaker--msg--open {
+  animation: morph-to-modal 2s forwards;
+}
+.ice-breaker--msg--open > p {
+  display: none;
+}
+.ice-breaker--msg--open .ice-breaker-r {
+  animation: show-modal-content 0.6s forwards 2s;
 }
 
+@keyframes morph-to-modal {
+  0% {
+    background: var(--color-secundary);
+  }
+  50% {
+    background: #fff;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  100% {
+    width: calc(100% - 80px);
+    margin: 40px;
+    height: 80vh;
+    overflow: hidden;
+    background: #fff;
+  }
+}
+@keyframes show-modal-content {
+  from {
+    display: block;
+  }
+  to {
+    display: block;
+  }
+}
 @keyframes slide-left {
   from {
     transform: translateX(100%);

@@ -1,11 +1,18 @@
-//- each answer in iceBreakerData.images
-//-   img(src= answer)
-
 extends layout
 
 block content
   - const profile = data.profile
-  .msg= `${data.users[0].name} heeft gereageerd` 
+  .ice-breaker--msg
+    p= `${data.users[0].name} heeft gereageerd` 
+
+    .ice-breaker-r
+
+      .ice-breaker-r__inner
+        h4 Set: 1 van de 3
+        h2 Ice-breaker
+
+        each answer in iceBreakerData.images
+          img(src= answer)
 
   .profile-header
     img(src=profile.images.display)

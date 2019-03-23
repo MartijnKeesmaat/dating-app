@@ -51,4 +51,15 @@
 	function openBreaker() {
 		body.classList.add('is-icebreaker-active');
 	}
+
+
+	// Icebreaker-result
+	if ($('.ice-breaker--msg')) {
+		$('.ice-breaker--msg').addEventListener('click', iceBreakerOpen, false);
+
+	}
+
+	function iceBreakerOpen() {
+		$('.ice-breaker--msg').classList.add('ice-breaker--msg--open');
+	}
 })();
