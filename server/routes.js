@@ -32,6 +32,9 @@ let iceBreakerData = [];
 
 router.post('/icebreaker', urlencodedParser, (req, res) => {
 	if (!req.body) return res.sendStatus(400);
+	console.log('data below');
+	console.log(req.body);
+	iceBreakerData = [];
 	iceBreakerData.push({
 		q1: req.body.q1,
 		q2: req.body.q2,
