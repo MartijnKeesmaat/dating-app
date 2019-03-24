@@ -5,24 +5,23 @@ const data = require('./data');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
-router.get('/icebreaker', (req, res) => {
-	res.render('icebreaker');
-});
-
-// Routes
+// Root
 router.get('/', (req, res) => {
 	res.render('index', {
 		data
 	});
 });
 
+// Profile
 router.get('/profile', (req, res) => {
 	res.render('profile-resp', {
 		data
 	});
 });
 
+// User
 router.get('/users/:id', (req, res) => {
 	const id = req.params.id;
 	res.render('profile', {
@@ -53,7 +52,7 @@ router.post('/icebreaker', urlencodedParser, (req, res) => {
 
 
 
-
+// Connect to DB with Mongoose
 mongoose.connect('mongodb://localhost:27017/icebreaker', { useNewUrlParser: true });
 
 const db = mongoose.connection;
@@ -62,6 +61,7 @@ db.once('open', function () {
 	console.log('Connected');
 });
 
+// Creates schema for a user
 const UserSchema = new mongoose.Schema({
 	email: {
 		type: String,
@@ -81,18 +81,25 @@ const UserSchema = new mongoose.Schema({
 	}
 });
 
+// Adds prehook to the userschema and makes a hash of the password to make it more descriptive
+UserSchema.pre('save', function (next) {
+	const user = this;
+	bcrypt.hash(user.password, 10, function (err, hash) {
+		if (err) {
+			return next(err);
+		}
+		user.password = hash;
+		next();
+	});
+});
+
+
 const User = mongoose.model('User', UserSchema);
 
 
-
+// Post data from register form to db
 router.post('/account', urlencodedParser, (req, res, next) => {
 	if (!req.body) return res.sendStatus(400);
-	// console.log(req.body);
-	// if (req.body.email &&
-	// 	req.body.username &&
-	// 	req.body.password &&
-	// 	req.body.passwordConf) {
-	console.log(req.body);
 
 	const userData = {
 		email: req.body.email,
@@ -105,9 +112,7 @@ router.post('/account', urlencodedParser, (req, res, next) => {
 			data
 		});
 	});
-	//use schema.create to insert data into the db
-	// }
-	db.find();
+
 });
 
 module.exports = router;
