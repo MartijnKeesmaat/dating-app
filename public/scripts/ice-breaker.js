@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var body = document.body;
+	const body = document.body;
 
 	// run code
 	enableJS();
