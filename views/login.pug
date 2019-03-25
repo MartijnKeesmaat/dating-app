@@ -1,5 +1,8 @@
-form(action="/account" method="post")
-  input(type="email" name="logemail")
-  input(type="password" name="logpassword")
+extends layout
 
-  button Login
+block content
+  form(action="/login" method="post")
+    input(type="text" name="username")
+    input(type="password" name="password")
+
+    button Login

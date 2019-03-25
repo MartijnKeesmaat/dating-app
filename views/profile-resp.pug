@@ -2,107 +2,100 @@ extends layout
 
 block content
 
-  form(action="/account" method="post")
-    input(type="email" name="email")
-    input(type="text" name="username")
-    input(type="password" name="password")
-    input(type="password" name="passwordConf")
-    
 
-    button Maak aan
 
-  //- - const profile = data.profile
-  //- .ice-breaker--msg
-  //-   p= `${data.users[0].name} heeft gereageerd` 
+  - const profile = data.profile
+  .ice-breaker--msg
+    p= `${data.users[0].name} heeft gereageerd` 
 
-  //-   .ice-breaker-r
+    .ice-breaker-r
 
-  //-     .ice-breaker-r__inner
-  //-       h4 Set: 1 van de 3
-  //-       h2 Ice-breaker
+      .ice-breaker-r__inner
+        h4 Set: 1 van de 3
+        h2 Ice-breaker
 
-  //-       each answer in iceBreakerData.images
-  //-         img(src= answer)
+        each answer in iceBreakerData.images
+          img(src= answer)
 
-  //- .profile-header
-  //-   img(src=profile.images.display)
+  .profile-header
+    img(src=profile.images.display)
 
-  //- main.main-content
-  //-   .profile-intro
-  //-     .profile-intro__left
-  //-       h1= profile.name
-  //-       small= profile.job  
+  main.main-content
+    .profile-intro
+      .profile-intro__left
+        h1= profile.name
+        small= profile.job  
 
-  //-     .profile-intro__right
-  //-       img(src="/images/icons/heart.svg" alt="like")
-  //-       img(src="/images/icons/chat.svg" alt="comment" class="icebreaker__open")
-  //-       img(src="/images/icons/match-meter.svg" alt="match score")
+      .profile-intro__right
+        img(src="/images/icons/heart.svg" alt="like")
+        img(src="/images/icons/chat.svg" alt="comment" class="icebreaker__open")
+        img(src="/images/icons/match-meter.svg" alt="match score")
 
-  //-   .profile-meta
-  //-     .profile-meta__item
-  //-       h3 22 
-  //-         small Jaar
+    .profile-meta
+      .profile-meta__item
+        h3 22 
+          small Jaar
 
-  //-     .profile-meta__item
-  //-       h3 HBO 
-  //-         small Opleiding
+      .profile-meta__item
+        h3 HBO 
+          small Opleiding
 
-  //-     .profile-meta__item
-  //-       h3 18km 
-  //-         small Afstand                
+      .profile-meta__item
+        h3 18km 
+          small Afstand                
 
-  //-   .profile-about
-  //-     h2 Over mij
-  //-     p In mijn vrije tijd ben ik graag met goede vrienden, sport ik, kijk ik een serie of bedenk ik leuke plannen met mijn huisgenoot (die we bijna nooit uitvoeren). Ik probeer meer te lezen maar heb daar vaak niet de rust voor. Mijn positieve kanten zijn dat ik positief, vrolijk, betrouwbaar en open-minded ben. Ik ben meestal rustig maar als ik me op mijn gemak voel kom ik los. Ik hou van mensen met zelfspot en vind het fijn als een man regelmatig initiatief neemt om dingen te doen.
+    .profile-about
+      h2 Over mij
+      p In mijn vrije tijd ben ik graag met goede vrienden, sport ik, kijk ik een serie of bedenk ik leuke plannen met mijn huisgenoot (die we bijna nooit uitvoeren). Ik probeer meer te lezen maar heb daar vaak niet de rust voor. Mijn positieve kanten zijn dat ik positief, vrolijk, betrouwbaar en open-minded ben. Ik ben meestal rustig maar als ik me op mijn gemak voel kom ik los. Ik hou van mensen met zelfspot en vind het fijn als een man regelmatig initiatief neemt om dingen te doen.
 
-  //-   .profile-gallery
-  //-     img(src="/images/users/2/profile-1a.jpg" alt="")
-  //-     img(src="/images/users/2/profile-1b.jpg" alt="")
-  //-     img(src="/images/users/2/profile-1c.jpg" alt="")
+    .profile-gallery
+      img(src="/images/users/2/profile-1a.jpg" alt="")
+      img(src="/images/users/2/profile-1b.jpg" alt="")
+      img(src="/images/users/2/profile-1c.jpg" alt="")
 
-  //-   .icebreaker
-  //-     progress(value="25" max="100")
+    .icebreaker
+      progress(value="25" max="100")
 
-  //-     .icebreaker__inner
-  //-       h4 Set: 1 van de 3
-  //-       h2 Ice-breaker
+      .icebreaker__inner
+        h4 Set: 1 van de 3
+        h2 Ice-breaker
         
-  //-       form(action="/icebreaker" method="post")
-  //-         fieldset(class="active")
-  //-           legend Activity
+        form(action="/icebreaker" method="post")
+          fieldset(class="active")
+            legend Activity
             
-  //-           label(for="camping")
-  //-             input(type="radio", name="q1", value="gym" id="camping" class="ice-q")
-  //-             img(src="/images/party.jpg" alt="camping")
+            label(for="camping")
+              input(type="radio", name="q1", value="gym" id="camping" class="ice-q")
+              img(src="/images/party.jpg" alt="camping")
 
-  //-           label(for="home")
-  //-             input(type="radio", name="q1", value="camping", id="home" class="ice-q")
-  //-             img(src="/images/camping.jpg" alt="camping")
+            label(for="home")
+              input(type="radio", name="q1", value="camping", id="home" class="ice-q")
+              img(src="/images/camping.jpg" alt="camping")
 
           
-  //-         fieldset
-  //-           legend Activity
-  //-           label(for="workout")
-  //-             input(type="radio", name="q2", value="yoga", id="workout" class="ice-q")
-  //-             img(src="/images/party.jpg" alt="camping")
+          fieldset
+            legend Activity
+            label(for="workout")
+              input(type="radio", name="q2", value="yoga", id="workout" class="ice-q")
+              img(src="/images/party.jpg" alt="camping")
 
-  //-           label(for="movie")
-  //-             input(type="radio", name="q2", value="party" id="movie" class="ice-q")
-  //-             img(src="/images/gym.jpg" alt="camping")
+            label(for="movie")
+              input(type="radio", name="q2", value="party" id="movie" class="ice-q")
+              img(src="/images/gym.jpg" alt="camping")
 
-  //-         fieldset
-  //-           legend Pet
-  //-           label(for="cat")
-  //-             input(type="radio", name="q3", value="gym", id="cat" class="ice-q")
-  //-             img(src="/images/yoga.jpg" alt="camping")
+          fieldset
+            legend Pet
+            label(for="cat")
+              input(type="radio", name="q3", value="gym", id="cat" class="ice-q")
+              img(src="/images/yoga.jpg" alt="camping")
 
-  //-           label(for="dog")
-  //-             input(type="radio", name="q3", value="camping" id="dog" class="ice-q")
-  //-             img(src="/images/party.jpg" alt="camping")
+            label(for="dog")
+              input(type="radio", name="q3", value="camping" id="dog" class="ice-q")
+              img(src="/images/party.jpg" alt="camping")
 
-  //-         fieldset
-  //-           p.feedback Je hebt alle vragen beantwoord. Jouw ijsbreker zal worden verstuurd naar 
-  //-             a(href="#") Amelia Cabal
-  //-           input(type="submit" value="Verstuur ice-breaker")
+          fieldset
+            p.feedback Je hebt alle vragen beantwoord. Jouw ijsbreker zal worden verstuurd naar 
+              a(href="#") Amelia Cabal
+            input(type="submit" value="Verstuur ice-breaker")
 
-  //-       button(class="icebreaker__back icebreaker__close") Ga terug
+        button(class="icebreaker__back icebreaker__close") Ga terug
