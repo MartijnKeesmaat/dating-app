@@ -6,6 +6,15 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
 
   body(class="no-js")
+    if success_msg
+      p= success_msg
+
+    if error_msg
+      p= success_msg
+
+    if error
+      p= error
+
     .icebreaker-overlay.icebreaker__close
     include partials/nav
     block content

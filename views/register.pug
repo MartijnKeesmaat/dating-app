@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  if errors
+    each error in errors
+      p= error.msg
+
+  form(action="/register" method="post")
+    label(for="name") Name
+    input(type="text" name="name")
+
+    label(for="username") Username
+    input(type="text" name="username")
+
+    label(for="email") email
+    input(type="email" name="email")
+
+    label(for="password") Password
+    input(type="password" name="password")
+
+    label(for="passwordConf") Confirm password
+    input(type="password" name="passwordConf")
+    
+
+    button Maak aan
