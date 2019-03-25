@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+const app = express();
 
 // Root
 router.get('/', (req, res) => {
@@ -17,6 +19,13 @@ router.get('/', (req, res) => {
 // Profile
 router.get('/profile', (req, res) => {
 	res.render('profile-resp', {
+		data
+	});
+});
+
+// Profile
+router.get('/login', (req, res) => {
+	res.render('login', {
 		data
 	});
 });
@@ -78,6 +87,10 @@ const UserSchema = new mongoose.Schema({
 	password: {
 		type: String,
 		required: true,
+	},
+	passwordConf: {
+		type: String,
+		required: true
 	}
 });
 
@@ -98,22 +111,128 @@ const User = mongoose.model('User', UserSchema);
 
 
 // Post data from register form to db
+// router.post('/account', urlencodedParser, (req, res, next) => {
+// 	if (!req.body) return res.sendStatus(400);
+
+// 	const userData = {
+// 		email: req.body.email,
+// 		username: req.body.username,
+// 		password: req.body.password,
+// 	};
+
+// 	User.create(userData, function (err, user) {
+// 		res.render('index', {
+// 			data
+// 		});
+// 	});
+
+// });
+
+
+UserSchema.statics.authenticate = function (email, password, callback) {
+	User.findOne({ email: email })
+		.exec(function (err, user) {
+			if (err) {
+				return callback(err);
+			} else if (!user) {
+				const err = new Error('User not found.');
+				err.status = 401;
+				return callback(err);
+			}
+			bcrypt.compare(password, user.password, function (err, result) {
+				if (result === true) {
+					return callback(null, user);
+				} else {
+					return callback();
+				}
+			});
+		});
+};
+
+
 router.post('/account', urlencodedParser, (req, res, next) => {
 	if (!req.body) return res.sendStatus(400);
 
-	const userData = {
-		email: req.body.email,
-		username: req.body.username,
-		password: req.body.password,
-	};
+	if (req.body.email &&
+		req.body.username &&
+		req.body.password &&
+		req.body.passwordConf) {
 
-	User.create(userData, function (err, user) {
-		res.render('index', {
-			data
+		var userData = {
+			email: req.body.email,
+			username: req.body.username,
+			password: req.body.password,
+		};
+
+		User.create(userData, function (error, user) {
+			if (error) {
+				return next(error);
+			} else {
+				req.session.userId = user._id;
+				return res.redirect('/profile');
+			}
 		});
-	});
+
+	} else if (req.body.logemail && req.body.logpassword) {
+		User.authenticate(req.body.logemail, req.body.logpassword, function (error, user) {
+			if (error || !user) {
+				var err = new Error('Wrong email or password.');
+				err.status = 401;
+				return next(err);
+			} else {
+				req.session.userId = user._id;
+				return res.redirect('/');
+			}
+		});
+	} else {
+		var err = new Error('All fields required.');
+		err.status = 400;
+		return next(err);
+	}
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.use(session({
+	secret: 'work hard',
+	resave: true,
+	saveUninitialized: false
+}));
 
 module.exports = router;
 
