@@ -1,12 +1,18 @@
 nav.main-nav
   ul
-    if user
+    //- if user
       //- - const nav = [ { link: '/', text: 'Home' }, {link: '/profile', text: 'Profile'}, {link: '/register', text: 'Register' }, {link: '/logout', text: 'logout'}]
       li: a(href='/') Home  
       li: a(href='/profile') Profile
       li: a(href='/logout') Logout
   
-    if !user
+    //- if !user
       li: a(href='/') Home  
       li: a(href='/login') login
       li: a(href='/register') register
+
+    li: a(href='/') Home  
+    li: a(href='/profile') Profile
+    //- li: a(href='/logout') Logout
+    //- li: a(href='/login') login
+    //- li: a(href='/register') register
