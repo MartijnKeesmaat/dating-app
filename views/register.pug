@@ -2,25 +2,29 @@ extends layout
 
 block content
 
-  if errors
-    each error in errors
-      p= error.msg
+  .login-wrapper
 
-  form(action="/register" method="post")
-    label(for="name") Name
-    input(type="text" name="name")
+    //- if errors
+    //-   each error in errors
+    //-     p= error.msg
 
-    label(for="username") Username
-    input(type="text" name="username")
+    h1 Register
 
-    label(for="email") email
-    input(type="email" name="email")
+    form(action="/register" method="post")
+      label(for="name") Name
+      input(type="text" name="name")
 
-    label(for="password") Password
-    input(type="password" name="password")
+      label(for="username") Username
+      input(type="text" name="username")
 
-    label(for="passwordConf") Confirm password
-    input(type="password" name="passwordConf")
-    
+      label(for="email") email
+      input(type="email" name="email")
 
-    button Maak aan
+      label(for="password") Password
+      input(type="password" name="password")
+
+      label(for="passwordConf") Confirm password
+      input(type="password" name="passwordConf")
+      
+
+      button.btn Maak aan

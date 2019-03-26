@@ -1,8 +1,14 @@
 extends layout
 
 block content
-  form(action="/login" method="post")
-    input(type="text" name="username")
-    input(type="password" name="password")
+  .login-wrapper
+    h1 Login
+    form(action="/login" method="post")
+      label(for="username") User name
+      input(type="text" name="username" placeholder="Peter the Great")
 
-    button Login
+      label(for="password") Password      
+      input(type="password" name="password" placeholder="******")
+
+      button(type="submit" class='btn') Login
+      a(class="login-register-btn" href="/register") or register an account

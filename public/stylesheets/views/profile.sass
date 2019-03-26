@@ -102,64 +102,183 @@ main.main-content
   border-radius: 6px 0px 0px 6px
   position: fixed
   opacity: 0
-  // animation: slide-left .66s forwards 3s
+  animation: slide-left .66s forwards 3s
   width: 100%
   text-align: center
   transition: .6s all ease
   top: 0
 
-  opacity: 1
-
-  .ice-breaker-r
-    display: none
-
-    img
-      max-width: 100%
-  
   p
-    font-weight: 500
     margin: 0
-    padding: 0
-
-  &--open
-    animation: morph-to-modal 2s forwards
-
-    > p
-      display: none
-
-    .ice-breaker-r
-      animation: show-modal-content .6s forwards 2s
-    //   display: block
 
 
-@keyframes morph-to-modal
-  0%
-    background: var(--color-secundary)
 
-  50%
-    background: #fff
-    width: 200px
-    height: 200px
-    top: 50%
+.js-enabled.is-icebreaker-r-active
+  overflow: hidden
+
+  .icebreaker-overlay
+    visibility: visible
+    opacity: 1
+
+  .icebreaker-r
+    visibility: visible
+    opacity: 1
     transform: translateY(-50%)
+
+.js-enabled
+  .icebreaker-overlay
+    position: fixed
+    background: rgba(#000, .3)
+    left: 0
+    right: 0
+    top: 0
+    z-index: 9
+    width: 100vw
+    height: 100vh
+    visibility: hidden
+    opacity: 0
+    transition: .3s all ease
+
+  .icebreaker-r
+    position: fixed
     left: 0
     right: 0
     margin: 0 auto
-
-  100%
-    width: calc(100% - 80px)
-    margin: 40px
-    height: 80vh
-    overflow: hidden
+    top: 50%
+    border-radius: 5px
+    z-index: 10
     background: #fff
+    max-width: 80%
+    width: 400px
+    visibility: hidden
+    opacity: 0
+    transition: .3s all ease
+    transform: translateY(-45%)
+
+    .ice-breaker-r__inner
+      padding: 40px 45px 
+      padding-bottom: 25px
+      padding-top: 20px
+
+      @media(max-width: 450px)
+        padding: 0px 25px
+        padding-bottom: 23px
+        padding-top: 10px
+
+    h4
+      color: var(--color-main)
+      text-transform: uppercase
+      font-weight: 400
+      font-size: 0.9rem
+      margin-bottom: 0.6em
+
+    p.feedback
+      margin-top: 0
+
+    h2
+      font-size: 2rem
+      margin-top: 0.5em
+      margin-bottom: 0.5em
+
+    img
+      max-width: 100%
+
+    .btn
+      max-width: 60%
+      margin: 0 auto
+      margin-bottom: 20px
+      display: block
+
+    &-option
+      background: #fff
+      border-radius: 50%
+      width: 50px
+      height: 50px
+      position: absolute
+      left: 0
+      right: 0
+      margin: 0 auto
+      top: 56.5%
+      transform: translateY(-50%)
+      display: flex
+      justify-content: center
+      align-items: center
+      font-weight: 500
+      box-shadow: 0px 0px 0px 10px rgba(255,255,255,0.2)
+
+    &__back
+      border: none
+      text-align: center
+      width: 100%
+      color: var(--color-body)
+      font-size: 1.1rem
+      margin-top: 15px
+      opacity: .7
+      font-weight: 600
+      transition: .3s all ease
+      cursor: pointer
+      background: none
+
+      &:hover
+        opacity: .3
+
+      &:focus
+        outline: none
+
+    &__open
+      animation: pulse 2s infinite
+      border-radius: 50%
+      cursor: pointer
+
+      &:hover
+        animation: none
+      
+    /* All Progress Bars */
+    progress 
+      width: 100%
+      -webkit-appearance: none
+      -moz-appearance: none
+      appearance: none
+
+    /* Determinate */
+    progress[value]
+      -webkit-appearance: none
+      -moz-appearance: none
+      appearance: none
+      vertical-align: 0
+
+    /* Indeterminate */
+    progress:not([value])
+      /* Reset the default appearance */
+      background: pink
+      -webkit-appearance: none
+      -moz-appearance: none
+      appearance: none
+
+    progress::-webkit-progress-bar 
+      background: #FFE8E6
+      height: 4px
+
+    progress::-webkit-progress-value
+      background-color: var(--color-main)
 
 
-@keyframes show-modal-content
-  from
-    display: block
 
-  to
-    display: block
+.ice-breaker-people
+  margin-top: 20px
+  margin-bottom: -10px
+
+  img
+    border-radius: 50%
+    width: 45px
+    height: 45px
+    border: 2px solid #fff
+    object-fit: cover
+
+    &:last-child
+      position: relative
+      left: -20px
+      z-index: -1
 
 
 @keyframes slide-left
@@ -170,3 +289,12 @@ main.main-content
   to
     transform: translateX(0)
     opacity: 1
+
+.iceBreakerData
+  display: flex
+  overflow: scroll
+  max-height: 360px
+
+  img
+    height: 200px
+    object-fit: cover

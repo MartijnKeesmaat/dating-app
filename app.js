@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./server/routes');
 const app = express();
-
 const expressValidator = require('express-validator');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -15,7 +14,8 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 // Connect to DB with Mongoose
-mongoose.connect('mongodb://localhost:27017/icebreaker', { useNewUrlParser: true });
+const url = 'mongodb://localhost:27017/icebreaker';
+mongoose.connect(url, { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -23,19 +23,20 @@ db.once('open', function () {
 	console.log('Connected');
 });
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.set('trust proxy', 1); // trust first proxy
-
 app.use(session({
-	secret: 'secret',
-	saveUninitialized: true,
+	secret: 'keyboard poodle',
 	resave: true,
+	saveUninitialized: true,
 	cookie: { secure: true }
 }));
+
+app.use(session({ secret: 'secret' }));
+
 
 app.use(passport.initialize());
 app.use(passport.session());

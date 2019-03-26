@@ -1,15 +1,17 @@
 extends layout
 
 block content
+  //- results[0].name
+  //- p= 
 
   .overview
     h2 Vind partners
     h1 Zoeken
 
-    each user in data.users
+    each user in users
       article.user
-        a(href='/users/' + user.id)
-          img(class="user__display" src=user.images.display)
+        a(href='/users/' + user._id)
+          img(class="user__display" src=user.displayImage)
           
           .user__info
             .user__desc

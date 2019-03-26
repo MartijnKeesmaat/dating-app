@@ -5,20 +5,54 @@ const data = require('./data');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const User = require('../models/user');
+const mongo = require('mongodb');
+const objectId = require('mongodb').ObjectID;
+// const session = require('express-session');
 const passport = require('passport');
+const assert = require('assert');
 const LocalStrategy = require('passport-local').Strategy;
+const url = 'mongodb://localhost:27017/icebreaker';
 
 // GET routes
-router.get('/', (req, res) => {
-	res.render('index', {
-		data
+router.get('/', function (req, res, next) {
+	let users = [];
+	mongo.connect(url, function (err, db) {
+		assert.equal(null, err);
+		const cursor = db.collection('profiles').find();
+		cursor.forEach(function (doc, err) {
+			assert.equal(null, err);
+			users.push(doc);
+		}, function () {
+			db.close();
+			res.render('index', {
+				data,
+				users
+			});
+		});
 	});
 });
 
+
+// router.get('/', (req, res, next) => {
+// 	req.session.save(function (err) {
+// 		if (err) return next(err);
+// 		res.render('index', {
+// 			data
+// 		});
+// 	});
+// });
+
 router.get('/profile', (req, res) => {
-	res.render('profile', {
-		data
-	});
+	if (req.session && req.session.user) {
+		res.render('my-profile', {
+			data,
+			user: req.user,
+			iceBreakerData: { images: [] }
+		});
+	}
+	else {
+		res.redirect('login');
+	}
 });
 
 router.get('/login', (req, res) => {
@@ -35,11 +69,73 @@ router.get('/register', (req, res) => {
 
 router.get('/users/:id', (req, res) => {
 	const id = req.params.id;
-	res.render('profile', {
-		data,
-		id
+	let users = [];
+	mongo.connect(url, function (err, db) {
+
+		// Check for errors
+		assert.equal(null, err);
+
+		// Check collection and push to users arr
+		const cursor = db.collection('profiles').find();
+		cursor.forEach(function (doc, err) {
+			assert.equal(null, err);
+			users.push(doc);
+		}, function () {
+			db.close();
+
+			// Filter profiles on ID
+			let user = users.filter(i => i._id == id);
+			user = user[0];
+
+			// Render page with data
+			res.render('profile', {
+				user
+			});
+		});
 	});
 });
+
+
+// router.post('/update'), function (req, res, next) {
+// 	const item = {
+// 		intro: 'test'
+// 		// content: req.body.content,
+// 		// author: req.body.author
+// 	};
+
+// 	const id = '5c98e85e0c14bd64d81edb22';
+
+// 	mongo.connect(url, function (err, db) {
+// 		assert.equal(null, err);
+// 		db.collection('users').updateOne({ '_id': objectId(id) }, { $set: item }, function (err, result) {
+// 			assert.equal(null, err);
+// 			console.log('Item updated');
+// 			db.close();
+// 		});
+// 	});
+// };
+
+
+router.post('/update', function (req, res, next) {
+	var item = {
+		intro: 'req.body.title',
+		// content: req.body.content,
+		// author: req.body.author
+	};
+	var id = '5c98e85e0c14bd64d81edb22';
+
+	mongo.connect(url, function (err, db) {
+		assert.equal(null, err);
+		db.collection('user-data').updateOne({ '_id': objectId(id) }, { $set: item }, function (err, result) {
+			assert.equal(null, err);
+			console.log('Item updated');
+			db.close();
+		});
+	});
+	res.redirect('/profile');
+});
+
+
 
 // Create account
 router.post('/register', (req, res) => {
@@ -55,6 +151,10 @@ router.post('/register', (req, res) => {
 	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
 
+	// Set session info
+	req.session.name = name;
+	req.session.email = email;
+	req.session.password = password;
 	const errors = req.validationErrors();
 
 	// Create user in db
@@ -109,15 +209,30 @@ passport.deserializeUser(function (id, done) {
 	});
 });
 
+// router.post('/login',
+// 	passport.authenticate('local',
+// 		{
+// 			successRedirect: '/',
+// 			failureRedirect: '/login',
+// 			failureFlash: true
+// 		}),
+// 	function (req, res) {
+// 		console.log(req.user);
+// 		res.redirect('/');
+// 	});
+
 router.post('/login',
-	passport.authenticate('local',
-		{
-			successRedirect: '/',
-			failureRedirect: '/login',
-			failureFlash: true
-		}),
-	function (req, res) {
-		res.redirect('/');
+	passport.authenticate('local'), function (req, res) {
+		// If this function gets called, authentication was successful.
+		// `req.user` contains the authenticated user.
+		console.log(req.user);
+		req.session.user = req.user;
+		res.render('my-profile', {
+			data,
+			user: req.user,
+			iceBreakerData: { images: [] }
+		});
+		// res.redirect('profile', { user: req.user });
 	});
 
 
@@ -141,9 +256,13 @@ router.post('/icebreaker', urlencodedParser, (req, res) => {
 		`/images/${req.body.q2}.jpg`,
 		`/images/${req.body.q3}.jpg`
 	);
-	res.render('profile-resp', {
+	res.render('my-profile', {
 		iceBreakerData,
-		data
+		data,
+		// user: req.user,
+		user: {
+			name: 'Martijn Keesmaat'
+		}
 	});
 });
 

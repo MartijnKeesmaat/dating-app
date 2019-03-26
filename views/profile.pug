@@ -1,9 +1,8 @@
 extends layout
 
 block content
-  - const user = data.users[id-1]
   .profile-header
-    img(src=user.images.display)
+    img(src=user.displayImage)
 
   main.main-content
     .profile-intro
@@ -31,7 +30,9 @@ block content
 
     .profile-about
       h2 Over mij
-      p In mijn vrije tijd ben ik graag met goede vrienden, sport ik, kijk ik een serie of bedenk ik leuke plannen met mijn huisgenoot (die we bijna nooit uitvoeren). Ik probeer meer te lezen maar heb daar vaak niet de rust voor. Mijn positieve kanten zijn dat ik positief, vrolijk, betrouwbaar en open-minded ben. Ik ben meestal rustig maar als ik me op mijn gemak voel kom ik los. Ik hou van mensen met zelfspot en vind het fijn als een man regelmatig initiatief neemt om dingen te doen.
+      p= user.intro
+
+      form(action="/update" method="post")
 
     .profile-gallery
       img(src="/images/users/2/profile-1a.jpg" alt="")
@@ -39,13 +40,15 @@ block content
       img(src="/images/users/2/profile-1c.jpg" alt="")
 
     .icebreaker
-      progress(value="25" max="100")
+      progress(value="16.6" max="100")
 
       .icebreaker__inner
         h4 Set: 1 van de 3
         h2 Ice-breaker
         
         form(action="/icebreaker" method="post")
+          .icebreaker-option or
+
           fieldset(class="active")
             legend Activity
             
@@ -57,7 +60,26 @@ block content
               input(type="radio", name="q1", value="camping", id="home" class="ice-q")
               img(src="/images/camping.jpg" alt="camping")
 
-          
+          fieldset
+            legend Activity
+            label(for="workout")
+              input(type="radio", name="q2", value="yoga", id="workout" class="ice-q")
+              img(src="/images/party.jpg" alt="camping")
+
+            label(for="movie")
+              input(type="radio", name="q2", value="party" id="movie" class="ice-q")
+              img(src="/images/gym.jpg" alt="camping")
+
+          fieldset
+            legend Pet
+            label(for="cat")
+              input(type="radio", name="q3", value="gym", id="cat" class="ice-q")
+              img(src="/images/yoga.jpg" alt="camping")
+
+            label(for="dog")
+              input(type="radio", name="q3", value="camping" id="dog" class="ice-q")
+              img(src="/images/party.jpg" alt="camping")
+              
           fieldset
             legend Activity
             label(for="workout")
