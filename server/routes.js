@@ -5,19 +5,41 @@ const data = require('./data');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const User = require('../models/user');
-const session = require('express-session');
+const mongo = require('mongodb');
+// const session = require('express-session');
 const passport = require('passport');
+const assert = require('assert');
 const LocalStrategy = require('passport-local').Strategy;
+const url = 'mongodb://localhost:27017/icebreaker';
 
 // GET routes
-router.get('/', (req, res, next) => {
-	req.session.save(function (err) {
-		if (err) return next(err);
-		res.render('index', {
-			data
+router.get('/', function (req, res, next) {
+	let users = [];
+	mongo.connect(url, function (err, db) {
+		assert.equal(null, err);
+		const cursor = db.collection('profiles').find();
+		cursor.forEach(function (doc, err) {
+			assert.equal(null, err);
+			users.push(doc);
+		}, function () {
+			db.close();
+			res.render('index', {
+				data,
+				users
+			});
 		});
 	});
 });
+
+
+// router.get('/', (req, res, next) => {
+// 	req.session.save(function (err) {
+// 		if (err) return next(err);
+// 		res.render('index', {
+// 			data
+// 		});
+// 	});
+// });
 
 router.get('/profile', (req, res) => {
 	if (req.session && req.session.user) {
