@@ -175,7 +175,10 @@ router.post('/icebreaker', urlencodedParser, (req, res) => {
 	res.render('my-profile', {
 		iceBreakerData,
 		data,
-		user: req.user,
+		// user: req.user,
+		user: {
+			name: 'Martijn Keesmaat'
+		}
 	});
 });
 
