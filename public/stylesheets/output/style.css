@@ -28,7 +28,7 @@ main.main-content {
   margin: 0 auto;
 }
 
-input[type=submit] {
+input[type=submit], .btn {
   border-radius: 50px;
   width: 100%;
   background: var(--color-main);
@@ -40,19 +40,33 @@ input[type=submit] {
   transition: 0.3s all ease;
   text-align: center;
 }
-input[type=submit]:hover {
+input[type=submit]:hover, .btn:hover {
   background: #FE6352;
   box-shadow: 2px 2px 20px rgba(var(--color-main), 0.4);
 }
 
 input {
-  background: hotpink;
+  background: none;
   display: block;
-  width: 80%;
+  border-radius: 40px;
+  width: 100%;
   padding: 1em;
-  margin: 10px;
   margin-bottom: 30px;
   border: none;
+  border: rgba(155, 155, 183, 0.3) 1px solid;
+}
+input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.login-wrapper {
+  padding: 40px;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 11px;
+  display: block;
 }
 
 body {
@@ -351,6 +365,29 @@ p {
   /* Determinate */
   /* Indeterminate */
 }
+.js-enabled .icebreaker-option {
+  background: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 56.5%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  box-shadow: 0px 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+.js-enabled .icebreaker label {
+  margin: 0;
+}
+.js-enabled .icebreaker input {
+  margin-bottom: 5px;
+}
 .js-enabled .icebreaker__inner {
   padding: 40px 45px;
   padding-bottom: 25px;
@@ -375,8 +412,8 @@ p {
 }
 .js-enabled .icebreaker__inner h2 {
   font-size: 2rem;
-  margin-top: 0;
-  margin-bottom: 0.6em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 .js-enabled .icebreaker__inner form fieldset {
   display: none;

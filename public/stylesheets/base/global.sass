@@ -15,7 +15,7 @@ main.main-content
   padding: 45px
   margin: 0 auto
 
-input[type="submit"]
+input[type="submit"], .btn
   border-radius: 50px
   width: 100%
   background: var(--color-main)
@@ -32,10 +32,22 @@ input[type="submit"]
     box-shadow: 2px 2px 20px rgba(var(--color-main), .4)
 
 input
-  background: hotpink
+  background: none
   display: block
-  width: 80%
+  border-radius: 40px
+  width: 100%
   padding: 1em
-  margin: 10px
   margin-bottom: 30px
   border: none
+  border: rgba(#9B9BB7, .3) 1px solid
+
+  &::placeholder 
+    color: rgba(0,0,0,0.5)
+
+.login-wrapper
+  padding: 40px
+
+label
+  font-weight: 500
+  margin-bottom: 11px
+  display: block
