@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const User = require('../models/user');
 const mongo = require('mongodb');
+const ObjectId = require('mongodb').ObjectID;
 // const session = require('express-session');
 const passport = require('passport');
 const assert = require('assert');
@@ -68,10 +69,30 @@ router.get('/register', (req, res) => {
 
 router.get('/users/:id', (req, res) => {
 	const id = req.params.id;
-	res.render('profile', {
-		data,
-		id
+
+	let users = [];
+	mongo.connect(url, function (err, db) {
+		assert.equal(null, err);
+		const cursor = db.collection('profiles').find();
+		cursor.forEach(function (doc, err) {
+			assert.equal(null, err);
+			users.push(doc);
+		}, function () {
+			db.close();
+			let user = users.filter(i => i._id == req.params.id);
+			user = user[0];
+
+			res.render('profile', {
+				user
+			});
+		});
 	});
+
+
+	// res.render('profile', {
+	// 	data,
+	// 	id
+	// });
 });
 
 // Create account
