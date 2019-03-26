@@ -34,6 +34,7 @@
 		}
 		if (current + 1 >= sets.length) {
 			$('.icebreaker h4').remove();
+			$('.icebreaker-option').remove();
 			$('.icebreaker h2').textContent = '🎉 Ice-breaker';
 		}
 		// let currentProgress = $('progress').value;
@@ -56,7 +57,6 @@
 	// Icebreaker-result
 	if ($('.ice-breaker--msg')) {
 		$('.ice-breaker--msg').addEventListener('click', iceBreakerOpen, false);
-
 	}
 
 	function iceBreakerOpen() {
