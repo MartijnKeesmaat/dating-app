@@ -30,7 +30,9 @@ block content
 
     .profile-about
       h2 Over mij
-      p In mijn vrije tijd ben ik graag met goede vrienden, sport ik, kijk ik een serie of bedenk ik leuke plannen met mijn huisgenoot (die we bijna nooit uitvoeren). Ik probeer meer te lezen maar heb daar vaak niet de rust voor. Mijn positieve kanten zijn dat ik positief, vrolijk, betrouwbaar en open-minded ben. Ik ben meestal rustig maar als ik me op mijn gemak voel kom ik los. Ik hou van mensen met zelfspot en vind het fijn als een man regelmatig initiatief neemt om dingen te doen.
+      p= user.intro
+
+      form(action="/update" method="post")
 
     .profile-gallery
       img(src="/images/users/2/profile-1a.jpg" alt="")

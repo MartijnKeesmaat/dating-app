@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const User = require('../models/user');
 const mongo = require('mongodb');
-const ObjectId = require('mongodb').ObjectID;
+const objectId = require('mongodb').ObjectID;
 // const session = require('express-session');
 const passport = require('passport');
 const assert = require('assert');
@@ -94,6 +94,48 @@ router.get('/users/:id', (req, res) => {
 		});
 	});
 });
+
+
+// router.post('/update'), function (req, res, next) {
+// 	const item = {
+// 		intro: 'test'
+// 		// content: req.body.content,
+// 		// author: req.body.author
+// 	};
+
+// 	const id = '5c98e85e0c14bd64d81edb22';
+
+// 	mongo.connect(url, function (err, db) {
+// 		assert.equal(null, err);
+// 		db.collection('users').updateOne({ '_id': objectId(id) }, { $set: item }, function (err, result) {
+// 			assert.equal(null, err);
+// 			console.log('Item updated');
+// 			db.close();
+// 		});
+// 	});
+// };
+
+
+router.post('/update', function (req, res, next) {
+	var item = {
+		intro: 'req.body.title',
+		// content: req.body.content,
+		// author: req.body.author
+	};
+	var id = '5c98e85e0c14bd64d81edb22';
+
+	mongo.connect(url, function (err, db) {
+		assert.equal(null, err);
+		db.collection('user-data').updateOne({ '_id': objectId(id) }, { $set: item }, function (err, result) {
+			assert.equal(null, err);
+			console.log('Item updated');
+			db.close();
+		});
+	});
+	res.redirect('/profile');
+});
+
+
 
 // Create account
 router.post('/register', (req, res) => {

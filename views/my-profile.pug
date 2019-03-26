@@ -34,11 +34,6 @@ block content
         h1= user.name
         small= profile.job  
 
-      //- .profile-intro__right
-        img(src="/images/icons/heart.svg" alt="like")
-        img(src="/images/icons/chat.svg" alt="comment")
-        img(src="/images/icons/match-meter.svg" alt="match score")
-
     .profile-meta
       .profile-meta__item
         h3 22 
@@ -54,7 +49,11 @@ block content
 
     .profile-about
       h2 Over mij
-      p= profile.intro
+      p= user.intro
+
+      form(action="/update" method="post")
+        input(type="text" name='intro')
+        button Tap this
 
     .profile-gallery
       each img in profile.images.gallery
