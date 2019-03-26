@@ -69,30 +69,30 @@ router.get('/register', (req, res) => {
 
 router.get('/users/:id', (req, res) => {
 	const id = req.params.id;
-
 	let users = [];
 	mongo.connect(url, function (err, db) {
+
+		// Check for errors
 		assert.equal(null, err);
+
+		// Check collection and push to users arr
 		const cursor = db.collection('profiles').find();
 		cursor.forEach(function (doc, err) {
 			assert.equal(null, err);
 			users.push(doc);
 		}, function () {
 			db.close();
-			let user = users.filter(i => i._id == req.params.id);
+
+			// Filter profiles on ID
+			let user = users.filter(i => i._id == id);
 			user = user[0];
 
+			// Render page with data
 			res.render('profile', {
 				user
 			});
 		});
 	});
-
-
-	// res.render('profile', {
-	// 	data,
-	// 	id
-	// });
 });
 
 // Create account
