@@ -2,11 +2,11 @@ extends layout
 
 block content
 
-
-
   - const profile = data.profile
-  .ice-breaker--msg
-    p= `${data.users[0].name} heeft gereageerd` 
+  
+  if iceBreakerData.images.length > 0
+    .ice-breaker--msg
+      p= `${data.users[0].name} heeft gereageerd` 
 
     .ice-breaker-r
 
@@ -14,8 +14,9 @@ block content
         h4 Set: 1 van de 3
         h2 Ice-breaker
 
-        each answer in iceBreakerData.images
-          img(src= answer)
+        if iceBreakerData
+          each answer in iceBreakerData.images
+            img(src= answer)
 
   .profile-header
     img(src=profile.images.display)
@@ -23,7 +24,7 @@ block content
   main.main-content
     .profile-intro
       .profile-intro__left
-        h1= profile.name
+        h1= user.name
         small= profile.job  
 
       .profile-intro__right
@@ -99,3 +100,6 @@ block content
             input(type="submit" value="Verstuur ice-breaker")
 
         button(class="icebreaker__back icebreaker__close") Ga terug
+
+  
+    a(href='/logout' class="btn" style="margin-top: 30px; display: block") Logout
