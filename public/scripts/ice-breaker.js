@@ -38,13 +38,14 @@
 			$('.icebreaker h2').textContent = '🎉 Ice-breaker';
 		}
 		// let currentProgress = $('progress').value;
-		$('progress').value = $('progress').value + 25;
+		$('progress').value = $('progress').value + 16.6;
 	}
 
 	// Close icebreaker
 	$$('.icebreaker__close').forEach(i => i.addEventListener('click', closeBreaker, false));
 	function closeBreaker() {
 		body.classList.remove('is-icebreaker-active');
+		body.classList.remove('is-icebreaker-r-active');
 	}
 
 
@@ -60,6 +61,6 @@
 	}
 
 	function iceBreakerOpen() {
-		$('.ice-breaker--msg').classList.add('ice-breaker--msg--open');
+		$('body').classList.add('is-icebreaker-r-active');
 	}
 })();

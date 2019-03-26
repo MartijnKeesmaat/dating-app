@@ -8,15 +8,22 @@ block content
     .ice-breaker--msg
       p= `${data.users[0].name} heeft gereageerd` 
 
-    .ice-breaker-r
+    .icebreaker-r
 
       .ice-breaker-r__inner
-        h4 Set: 1 van de 3
-        h2 Ice-breaker
+        .ice-breaker-people
+          img(src=data.users[1].images.display)
+          img(src=profile.images.display)
 
-        if iceBreakerData
-          each answer in iceBreakerData.images
-            img(src= answer)
+        h2 Begin een gesprek
+        p= `${data.users[0].name} en jij vonden allebei deze onderwerpen interessant` 
+
+        .iceBreakerData
+          .iceBreakerData__comparison
+            each answer in iceBreakerData.images
+              img(src=answer)
+
+      button.btn Start gesprek
 
   .profile-header
     img(src=profile.images.display)
@@ -27,9 +34,9 @@ block content
         h1= user.name
         small= profile.job  
 
-      .profile-intro__right
+      //- .profile-intro__right
         img(src="/images/icons/heart.svg" alt="like")
-        img(src="/images/icons/chat.svg" alt="comment" class="icebreaker__open")
+        img(src="/images/icons/chat.svg" alt="comment")
         img(src="/images/icons/match-meter.svg" alt="match score")
 
     .profile-meta
@@ -47,12 +54,11 @@ block content
 
     .profile-about
       h2 Over mij
-      p In mijn vrije tijd ben ik graag met goede vrienden, sport ik, kijk ik een serie of bedenk ik leuke plannen met mijn huisgenoot (die we bijna nooit uitvoeren). Ik probeer meer te lezen maar heb daar vaak niet de rust voor. Mijn positieve kanten zijn dat ik positief, vrolijk, betrouwbaar en open-minded ben. Ik ben meestal rustig maar als ik me op mijn gemak voel kom ik los. Ik hou van mensen met zelfspot en vind het fijn als een man regelmatig initiatief neemt om dingen te doen.
+      p= profile.intro
 
     .profile-gallery
-      img(src="/images/users/2/profile-1a.jpg" alt="")
-      img(src="/images/users/2/profile-1b.jpg" alt="")
-      img(src="/images/users/2/profile-1c.jpg" alt="")
+      each img in profile.images.gallery
+        img(src=img)
 
     .icebreaker
       progress(value="25" max="100")

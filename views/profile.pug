@@ -39,7 +39,7 @@ block content
       img(src="/images/users/2/profile-1c.jpg" alt="")
 
     .icebreaker
-      progress(value="25" max="100")
+      progress(value="16.6" max="100")
 
       .icebreaker__inner
         h4 Set: 1 van de 3
@@ -59,7 +59,26 @@ block content
               input(type="radio", name="q1", value="camping", id="home" class="ice-q")
               img(src="/images/camping.jpg" alt="camping")
 
-          
+          fieldset
+            legend Activity
+            label(for="workout")
+              input(type="radio", name="q2", value="yoga", id="workout" class="ice-q")
+              img(src="/images/party.jpg" alt="camping")
+
+            label(for="movie")
+              input(type="radio", name="q2", value="party" id="movie" class="ice-q")
+              img(src="/images/gym.jpg" alt="camping")
+
+          fieldset
+            legend Pet
+            label(for="cat")
+              input(type="radio", name="q3", value="gym", id="cat" class="ice-q")
+              img(src="/images/yoga.jpg" alt="camping")
+
+            label(for="dog")
+              input(type="radio", name="q3", value="camping" id="dog" class="ice-q")
+              img(src="/images/party.jpg" alt="camping")
+              
           fieldset
             legend Activity
             label(for="workout")

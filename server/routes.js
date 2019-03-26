@@ -71,7 +71,6 @@ router.post('/register', (req, res) => {
 	req.session.email = email;
 	req.session.password = password;
 	const errors = req.validationErrors();
-	res.end('done');
 
 	// Create user in db
 	if (errors) {
