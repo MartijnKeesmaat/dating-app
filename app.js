@@ -29,13 +29,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.set('trust proxy', 1); // trust first proxy
-
 app.use(session({
-	secret: 'secret',
-	saveUninitialized: true,
+	secret: 'keyboard poodle',
 	resave: true,
+	saveUninitialized: true,
 	cookie: { secure: true }
 }));
+
+app.use(session({ secret: 'secret' }));
+
 
 app.use(passport.initialize());
 app.use(passport.session());

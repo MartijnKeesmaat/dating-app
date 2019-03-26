@@ -5,20 +5,31 @@ const data = require('./data');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const User = require('../models/user');
+const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 // GET routes
-router.get('/', (req, res) => {
-	res.render('index', {
-		data
+router.get('/', (req, res, next) => {
+	req.session.save(function (err) {
+		if (err) return next(err);
+		res.render('index', {
+			data
+		});
 	});
 });
 
 router.get('/profile', (req, res) => {
-	res.render('profile', {
-		data
-	});
+	if (req.session && req.session.user) {
+		res.render('my-profile', {
+			data,
+			user: req.user,
+			iceBreakerData: { images: [] }
+		});
+	}
+	else {
+		res.redirect('login');
+	}
 });
 
 router.get('/login', (req, res) => {
@@ -55,7 +66,12 @@ router.post('/register', (req, res) => {
 	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
 
+	// Set session info
+	req.session.name = name;
+	req.session.email = email;
+	req.session.password = password;
 	const errors = req.validationErrors();
+	res.end('done');
 
 	// Create user in db
 	if (errors) {
@@ -109,15 +125,30 @@ passport.deserializeUser(function (id, done) {
 	});
 });
 
+// router.post('/login',
+// 	passport.authenticate('local',
+// 		{
+// 			successRedirect: '/',
+// 			failureRedirect: '/login',
+// 			failureFlash: true
+// 		}),
+// 	function (req, res) {
+// 		console.log(req.user);
+// 		res.redirect('/');
+// 	});
+
 router.post('/login',
-	passport.authenticate('local',
-		{
-			successRedirect: '/',
-			failureRedirect: '/login',
-			failureFlash: true
-		}),
-	function (req, res) {
-		res.redirect('/');
+	passport.authenticate('local'), function (req, res) {
+		// If this function gets called, authentication was successful.
+		// `req.user` contains the authenticated user.
+		console.log(req.user);
+		req.session.user = req.user;
+		res.render('my-profile', {
+			data,
+			user: req.user,
+			iceBreakerData: { images: [] }
+		});
+		// res.redirect('profile', { user: req.user });
 	});
 
 
@@ -141,9 +172,10 @@ router.post('/icebreaker', urlencodedParser, (req, res) => {
 		`/images/${req.body.q2}.jpg`,
 		`/images/${req.body.q3}.jpg`
 	);
-	res.render('profile-resp', {
+	res.render('my-profile', {
 		iceBreakerData,
-		data
+		data,
+		user: req.user,
 	});
 });
 
