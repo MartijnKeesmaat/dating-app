@@ -5,6 +5,7 @@ block content
   
 
   .profile-header
+    button(class="profile-header__edit btn--text open-edit") Edit profile
     img(src=user.displayImage)
 
   main.main-content
@@ -30,23 +31,16 @@ block content
       h2 Over mij
       p= user.intro
 
-      form(action="/update" method="post")
-        label(for="name") Name
-        input(type="text" name="name")
-
-        label(for="job") Job
-        input(type="text" name="job")
-
-        label(for="intro") intro
-        textarea(name="intro", cols="30", rows="10")
-
-        button.btn Tap this
-
     .profile-gallery
       each img in user.gallery
         img(src=img)
+
+
+      form(action="uploadGallery" method="post" enctype="multipart/form-data")        
+        input(type="file" name="uploadImage")
+        button(type="submit" class="btn") Upload image
   
-    a(href='/logout' class="btn" style="margin-top: 30px; display: block") Logout
+    a(href='/logout' class="btn--text") Log out
 
 
 
@@ -70,3 +64,19 @@ block content
               img(src=answer)
 
       button.btn Start gesprek
+
+
+  .edit-profile
+    h2 Edit profile
+
+    form(action="/update" method="post")
+      label(for="name") Name
+      input(type="text" name="name" value=user.name)
+
+      label(for="job") Job
+      input(type="text" name="job" value=user.job)
+
+      label(for="intro") intro
+      textarea(name="intro", cols="30", rows="10")= user.intro
+
+      button.btn Save changes

@@ -1,4 +1,11 @@
 .profile-header
+  position: relative
+
+  &__edit
+    position: absolute
+    top: 20px 
+    right: 20px
+    margin-top: 0
 
   img
     width: 100%
@@ -224,45 +231,6 @@ main.main-content
 
       &:focus
         outline: none
-
-    &__open
-      animation: pulse 2s infinite
-      border-radius: 50%
-      cursor: pointer
-
-      &:hover
-        animation: none
-      
-    /* All Progress Bars */
-    progress 
-      width: 100%
-      -webkit-appearance: none
-      -moz-appearance: none
-      appearance: none
-
-    /* Determinate */
-    progress[value]
-      -webkit-appearance: none
-      -moz-appearance: none
-      appearance: none
-      vertical-align: 0
-
-    /* Indeterminate */
-    progress:not([value])
-      /* Reset the default appearance */
-      background: pink
-      -webkit-appearance: none
-      -moz-appearance: none
-      appearance: none
-
-    progress::-webkit-progress-bar 
-      background: #FFE8E6
-      height: 4px
-
-    progress::-webkit-progress-value
-      background-color: var(--color-main)
-
-
 
 .ice-breaker-people
   margin-top: 20px

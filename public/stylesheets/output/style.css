@@ -75,6 +75,22 @@ label {
   margin-top: 10px;
 }
 
+.btn--text {
+  color: var(--color-main);
+  margin-top: 30px;
+  display: inline-block;
+  padding-bottom: 3px;
+  border-bottom: 2px solid var(--color-main);
+  transition: 0.3s all ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.btn--text:hover {
+  opacity: 0.5;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-body);
@@ -152,6 +168,15 @@ p {
   margin-right: 0;
 }
 
+.profile-header {
+  position: relative;
+}
+.profile-header__edit {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin-top: 0;
+}
 .profile-header img {
   width: 100%;
   height: 300px;
@@ -310,9 +335,6 @@ p {
   opacity: 0;
   transition: 0.3s all ease;
   transform: translateY(-45%);
-  /* All Progress Bars */
-  /* Determinate */
-  /* Indeterminate */
 }
 .js-enabled .icebreaker-r .ice-breaker-r__inner {
   padding: 40px 45px;
@@ -385,40 +407,6 @@ p {
 }
 .js-enabled .icebreaker-r__back:focus {
   outline: none;
-}
-.js-enabled .icebreaker-r__open {
-  animation: pulse 2s infinite;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.js-enabled .icebreaker-r__open:hover {
-  animation: none;
-}
-.js-enabled .icebreaker-r progress {
-  width: 100%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.js-enabled .icebreaker-r progress[value] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  vertical-align: 0;
-}
-.js-enabled .icebreaker-r progress:not([value]) {
-  /* Reset the default appearance */
-  background: pink;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.js-enabled .icebreaker-r progress::-webkit-progress-bar {
-  background: #FFE8E6;
-  height: 4px;
-}
-.js-enabled .icebreaker-r progress::-webkit-progress-value {
-  background-color: var(--color-main);
 }
 
 .ice-breaker-people {
@@ -674,6 +662,129 @@ p {
 }
 .main-nav li {
   list-style: none;
+}
+
+.js-enabled.is-edit-open {
+  overflow: hidden;
+}
+.js-enabled.is-edit-open .icebreaker-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+.js-enabled.is-edit-open .edit-profile {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.js-enabled .edit-profile-overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s all ease;
+}
+.js-enabled .edit-profile {
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  margin: 0 auto;
+  top: 50%;
+  border-radius: 5px;
+  z-index: 10;
+  background: #fff;
+  max-width: 80%;
+  width: 400px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s all ease;
+  transform: translateY(-45%);
+}
+.js-enabled .edit-profile h2 {
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.js-enabled .edit-profile .btn {
+  margin-bottom: 0 !important;
+}
+.js-enabled .edit-profile .ice-breaker-r__inner {
+  padding: 40px 45px;
+  padding-bottom: 25px;
+  padding-top: 20px;
+}
+@media (max-width: 450px) {
+  .js-enabled .edit-profile .ice-breaker-r__inner {
+    padding: 0px 25px;
+    padding-bottom: 23px;
+    padding-top: 10px;
+  }
+}
+.js-enabled .edit-profile h4 {
+  color: var(--color-main);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-bottom: 0.6em;
+}
+.js-enabled .edit-profile p.feedback {
+  margin-top: 0;
+}
+.js-enabled .edit-profile h2 {
+  font-size: 2rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.js-enabled .edit-profile img {
+  max-width: 100%;
+}
+.js-enabled .edit-profile .btn {
+  max-width: 60%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: block;
+}
+.js-enabled .edit-profile-option {
+  background: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 56.5%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  box-shadow: 0px 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+.js-enabled .edit-profile__back {
+  border: none;
+  text-align: center;
+  width: 100%;
+  color: var(--color-body);
+  font-size: 1.1rem;
+  margin-top: 15px;
+  opacity: 0.7;
+  font-weight: 600;
+  transition: 0.3s all ease;
+  cursor: pointer;
+  background: none;
+}
+.js-enabled .edit-profile__back:hover {
+  opacity: 0.3;
+}
+.js-enabled .edit-profile__back:focus {
+  outline: none;
 }
 
 /*# sourceMappingURL=style.css.map */

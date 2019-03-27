@@ -63,4 +63,10 @@
 	function iceBreakerOpen() {
 		$('body').classList.add('is-icebreaker-r-active');
 	}
+
+	$('.open-edit').addEventListener('click', editOpen, false);
+
+	function editOpen() {
+		$('body').classList.add('is-edit-open');
+	}
 })();
