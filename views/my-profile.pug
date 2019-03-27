@@ -3,7 +3,7 @@ extends layout
 block content
 
   - const profile = data.profile
-  
+
   if iceBreakerData.images.length > 0
     .ice-breaker--msg
       p= `${data.users[0].name} heeft gereageerd` 
@@ -32,7 +32,7 @@ block content
     .profile-intro
       .profile-intro__left
         h1= user.name
-        small= profile.job  
+        small= user.job  
 
     .profile-meta
       .profile-meta__item
@@ -52,8 +52,16 @@ block content
       p= user.intro
 
       form(action="/update" method="post")
-        input(type="text" name='intro')
-        button Tap this
+        label(for="name") Name
+        input(type="text" name="name")
+
+        label(for="job") Job
+        input(type="text" name="job")
+
+        label(for="intro") intro
+        textarea(name="intro", cols="30", rows="10")
+
+        button.btn Tap this
 
     .profile-gallery
       each img in profile.images.gallery

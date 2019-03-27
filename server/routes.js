@@ -32,21 +32,11 @@ router.get('/', function (req, res, next) {
 	});
 });
 
-
-// router.get('/', (req, res, next) => {
-// 	req.session.save(function (err) {
-// 		if (err) return next(err);
-// 		res.render('index', {
-// 			data
-// 		});
-// 	});
-// });
-
 router.get('/profile', (req, res) => {
 	if (req.session && req.session.user) {
 		res.render('my-profile', {
 			data,
-			user: req.user,
+			user: req.session.user,
 			iceBreakerData: { images: [] }
 		});
 	}
@@ -96,43 +86,44 @@ router.get('/users/:id', (req, res) => {
 });
 
 
-// router.post('/update'), function (req, res, next) {
-// 	const item = {
-// 		intro: 'test'
-// 		// content: req.body.content,
-// 		// author: req.body.author
-// 	};
-
-// 	const id = '5c98e85e0c14bd64d81edb22';
-
-// 	mongo.connect(url, function (err, db) {
-// 		assert.equal(null, err);
-// 		db.collection('users').updateOne({ '_id': objectId(id) }, { $set: item }, function (err, result) {
-// 			assert.equal(null, err);
-// 			console.log('Item updated');
-// 			db.close();
-// 		});
-// 	});
-// };
-
-
 router.post('/update', function (req, res, next) {
-	var item = {
-		intro: 'req.body.title',
-		// content: req.body.content,
-		// author: req.body.author
+	var newContent = {
+		name: req.body.name,
+		job: req.body.job,
+		intro: req.body.intro
 	};
-	var id = '5c98e85e0c14bd64d81edb22';
+
+	req.user = {
+		name: req.body.name,
+		job: req.body.job,
+		intro: req.body.intro
+	};
+	console.log(req.user.job);
 
 	mongo.connect(url, function (err, db) {
 		assert.equal(null, err);
-		db.collection('user-data').updateOne({ '_id': objectId(id) }, { $set: item }, function (err, result) {
+		db.collection('users').updateOne({ '_id': objectId(req.user._id) }, {
+			$set: newContent,
+		}, function (err, result) {
 			assert.equal(null, err);
-			console.log('Item updated');
 			db.close();
 		});
 	});
-	res.redirect('/profile');
+
+	console.log(newContent);
+	console.log(req.user);
+	console.log(req.session.user);
+
+	// res.render('my-profile', {
+	// 	data,
+	// 	user: req.user,
+	// 	iceBreakerData: { images: [] }
+	// });
+	req.session.reload(function (err) {
+		// res.render('index', { title: req.session.example });
+		req.session.user = req.user;
+		res.redirect('/profile');
+	});
 });
 
 
@@ -209,32 +200,12 @@ passport.deserializeUser(function (id, done) {
 	});
 });
 
-// router.post('/login',
-// 	passport.authenticate('local',
-// 		{
-// 			successRedirect: '/',
-// 			failureRedirect: '/login',
-// 			failureFlash: true
-// 		}),
-// 	function (req, res) {
-// 		console.log(req.user);
-// 		res.redirect('/');
-// 	});
 
 router.post('/login',
 	passport.authenticate('local'), function (req, res) {
-		// If this function gets called, authentication was successful.
-		// `req.user` contains the authenticated user.
-		console.log(req.user);
 		req.session.user = req.user;
-		res.render('my-profile', {
-			data,
-			user: req.user,
-			iceBreakerData: { images: [] }
-		});
-		// res.redirect('profile', { user: req.user });
+		res.redirect('/profile');
 	});
-
 
 router.get('/logout', function (req, res) {
 	req.logout();

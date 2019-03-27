@@ -31,7 +31,7 @@ app.set('trust proxy', 1); // trust first proxy
 app.use(session({
 	secret: 'keyboard poodle',
 	resave: false,
-	saveUninitialized: true,
+	saveUninitialized: true
 }));
 
 app.use(session({ secret: 'secret' }));
