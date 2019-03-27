@@ -2,31 +2,10 @@ extends layout
 
 block content
 
-  - const profile = data.profile
-
-  if iceBreakerData.images.length > 0
-    .ice-breaker--msg
-      p= `${data.users[0].name} heeft gereageerd` 
-
-    .icebreaker-r
-
-      .ice-breaker-r__inner
-        .ice-breaker-people
-          img(src=data.users[1].images.display)
-          img(src=profile.images.display)
-
-        h2 Begin een gesprek
-        p= `${data.users[0].name} en jij vonden allebei deze onderwerpen interessant` 
-
-        .iceBreakerData
-          .iceBreakerData__comparison
-            each answer in iceBreakerData.images
-              img(src=answer)
-
-      button.btn Start gesprek
+  
 
   .profile-header
-    img(src=profile.images.display)
+    img(src=user.displayImage)
 
   main.main-content
     .profile-intro
@@ -64,55 +43,30 @@ block content
         button.btn Tap this
 
     .profile-gallery
-      each img in profile.images.gallery
+      each img in user.gallery
         img(src=img)
-
-    .icebreaker
-      progress(value="25" max="100")
-
-      .icebreaker__inner
-        h4 Set: 1 van de 3
-        h2 Ice-breaker
-        
-        form(action="/icebreaker" method="post")
-          fieldset(class="active")
-            legend Activity
-            
-            label(for="camping")
-              input(type="radio", name="q1", value="gym" id="camping" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
-
-            label(for="home")
-              input(type="radio", name="q1", value="camping", id="home" class="ice-q")
-              img(src="/images/camping.jpg" alt="camping")
-
-          
-          fieldset
-            legend Activity
-            label(for="workout")
-              input(type="radio", name="q2", value="yoga", id="workout" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
-
-            label(for="movie")
-              input(type="radio", name="q2", value="party" id="movie" class="ice-q")
-              img(src="/images/gym.jpg" alt="camping")
-
-          fieldset
-            legend Pet
-            label(for="cat")
-              input(type="radio", name="q3", value="gym", id="cat" class="ice-q")
-              img(src="/images/yoga.jpg" alt="camping")
-
-            label(for="dog")
-              input(type="radio", name="q3", value="camping" id="dog" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
-
-          fieldset
-            p.feedback Je hebt alle vragen beantwoord. Jouw ijsbreker zal worden verstuurd naar 
-              a(href="#") Amelia Cabal
-            input(type="submit" value="Verstuur ice-breaker")
-
-        button(class="icebreaker__back icebreaker__close") Ga terug
-
   
     a(href='/logout' class="btn" style="margin-top: 30px; display: block") Logout
+
+
+
+  if iceBreakerData.images.length > 0
+    .ice-breaker--msg
+      p Leanne Graham heeft gereageerd
+
+    .icebreaker-r
+
+      .ice-breaker-r__inner
+        .ice-breaker-people
+          img(src='/images/users/1/display.jpg')
+          img(src=user.displayImage)
+
+        h2 Begin een gesprek
+        p= `Leanne Graham en jij vonden allebei deze onderwerpen interessant` 
+
+        .iceBreakerData
+          .iceBreakerData__comparison
+            each answer in iceBreakerData.images
+              img(src=answer)
+
+      button.btn Start gesprek

@@ -96,7 +96,9 @@ router.post('/update', function (req, res, next) {
 	req.session.user = {
 		name: req.body.name,
 		job: req.body.job,
-		intro: req.body.intro
+		intro: req.body.intro,
+		displayImage: 'https://thumbs-prod.si-cdn.com/i-3LZKwzNwECUGnryG_Kt_KjiPo=/800x600/filters:no_upscale():focal(416x178:417x179)/https://public-media.si-cdn.com/filer/19/ec/19ec2712-c520-4e9f-ad37-0f3b5a19a3ec/peter_der-grosse_1838.jpg',
+		gallery: ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Young_Peter_the_Great_parsuna_%28cropped%29.jpg/220px-Young_Peter_the_Great_parsuna_%28cropped%29.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Deathbed_portrait_of_Peter_I_by_I.Nikitin_%281725%2C_Russian_museum%29.jpg/170px-Deathbed_portrait_of_Peter_I_by_I.Nikitin_%281725%2C_Russian_museum%29.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Peter_I_by_Kneller.jpg/220px-Peter_I_by_Kneller.jpg']
 	};
 
 	mongo.connect(url, function (err, db) {
@@ -213,13 +215,10 @@ router.post('/icebreaker', urlencodedParser, (req, res) => {
 		`/images/${req.body.q2}.jpg`,
 		`/images/${req.body.q3}.jpg`
 	);
+	console.log(req.session.user);
 	res.render('my-profile', {
 		iceBreakerData,
-		data,
-		// user: req.user,
-		user: {
-			name: 'Martijn Keesmaat'
-		}
+		user: req.session.user
 	});
 });
 
