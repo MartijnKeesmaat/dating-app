@@ -11,6 +11,8 @@ const passport = require('passport');
 const assert = require('assert');
 const LocalStrategy = require('passport-local').Strategy;
 const url = 'mongodb://localhost:27017/icebreaker';
+const multer = require('multer');
+const path = require('path');
 
 // GET routes
 router.get('/', function (req, res, next) {
@@ -80,7 +82,7 @@ router.get('/users/:id', (req, res) => {
 
 
 router.post('/update', function (req, res, next) {
-	var newContent = {
+	const newContent = {
 		name: req.body.name,
 		job: req.body.job,
 		intro: req.body.intro
@@ -213,6 +215,60 @@ router.post('/icebreaker', urlencodedParser, (req, res) => {
 		iceBreakerData,
 		user: req.session.user
 	});
+});
+
+
+
+// Set storage engine
+const storage = multer.diskStorage({
+	destination: './public/uploads/',
+	filename: function (req, file, callback) {
+		callback(null, file.originalname + '-' + Date.now() + path.extname(file.originalname));
+	}
+});
+
+// Init upload variable
+const upload = multer({
+	storage,
+	fileFilter: function (req, file, callback) {
+		checkFileType(file, callback);
+	}
+}).single('uploadImage');
+
+function checkFileType(file, callback) {
+	const filetypes = /jpeg|jpg|png|gif/;
+	const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+	const mimetype = filetypes.test(file.mimetype);
+	if (extname && mimetype) return callback(null, true);
+}
+
+router.post('/uploadGallery', (req, res) => {
+	upload(req, res, function () {
+
+		// Copy current gallery and add url
+		let gallery = [];
+		gallery.push(...req.session.user.gallery);
+		const newUrl = req.file.path.replace('public', '');
+		gallery.push(newUrl);
+
+		console.log('This da new gallery');
+		console.log(gallery);
+
+		const newContent = { gallery };
+
+		// Update url in db
+		mongo.connect(url, function (err, db) {
+			assert.equal(null, err);
+			db.collection('users').updateOne({ '_id': objectId(req.user._id) }, {
+				$set: newContent,
+			}, function (err, result) {
+				assert.equal(null, err);
+				db.close();
+			});
+		});
+
+		res.redirect('/profile');
+	}); // call multer function
 });
 
 module.exports = router;
