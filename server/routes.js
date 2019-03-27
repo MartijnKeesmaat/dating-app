@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-const data = require('./data');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const User = require('../models/user');
@@ -25,7 +24,6 @@ router.get('/', function (req, res, next) {
 		}, function () {
 			db.close();
 			res.render('index', {
-				data,
 				users
 			});
 		});
@@ -35,7 +33,6 @@ router.get('/', function (req, res, next) {
 router.get('/profile', (req, res) => {
 	if (req.session && req.session.user) {
 		res.render('my-profile', {
-			data,
 			user: req.session.user,
 			iceBreakerData: { images: [] }
 		});
@@ -46,15 +43,11 @@ router.get('/profile', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-	res.render('login', {
-		data
-	});
+	res.render('login');
 });
 
 router.get('/register', (req, res) => {
-	res.render('register', {
-		data
-	});
+	res.render('register');
 });
 
 router.get('/users/:id', (req, res) => {
