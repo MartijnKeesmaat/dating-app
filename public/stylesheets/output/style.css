@@ -45,7 +45,7 @@ input[type=submit]:hover, .btn:hover {
   box-shadow: 2px 2px 20px rgba(var(--color-main), 0.4);
 }
 
-input {
+input, textarea {
   background: none;
   display: block;
   border-radius: 40px;
@@ -55,7 +55,7 @@ input {
   border: none;
   border: rgba(155, 155, 183, 0.3) 1px solid;
 }
-input::placeholder {
+input::placeholder, textarea::placeholder {
   color: rgba(0, 0, 0, 0.5);
 }
 
