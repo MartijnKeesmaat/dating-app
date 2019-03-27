@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -10,7 +11,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const session = require('express-session');
 const flash = require('connect-flash');
 
 // Connect to DB with Mongoose
@@ -30,9 +30,8 @@ app.use(cookieParser());
 app.set('trust proxy', 1); // trust first proxy
 app.use(session({
 	secret: 'keyboard poodle',
-	resave: true,
+	resave: false,
 	saveUninitialized: true,
-	cookie: { secure: true }
 }));
 
 app.use(session({ secret: 'secret' }));
