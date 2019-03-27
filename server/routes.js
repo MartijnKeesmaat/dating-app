@@ -93,12 +93,11 @@ router.post('/update', function (req, res, next) {
 		intro: req.body.intro
 	};
 
-	req.user = {
+	req.session.user = {
 		name: req.body.name,
 		job: req.body.job,
 		intro: req.body.intro
 	};
-	console.log(req.user.job);
 
 	mongo.connect(url, function (err, db) {
 		assert.equal(null, err);
@@ -110,20 +109,7 @@ router.post('/update', function (req, res, next) {
 		});
 	});
 
-	console.log(newContent);
-	console.log(req.user);
-	console.log(req.session.user);
-
-	// res.render('my-profile', {
-	// 	data,
-	// 	user: req.user,
-	// 	iceBreakerData: { images: [] }
-	// });
-	req.session.reload(function (err) {
-		// res.render('index', { title: req.session.example });
-		req.session.user = req.user;
-		res.redirect('/profile');
-	});
+	res.redirect('/profile');
 });
 
 
