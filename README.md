@@ -14,18 +14,15 @@ Check the [wiki](https://github.com/MartijnKeesmaat/dating-app/wiki) for the pro
 With [npm](https://npmjs.org/) installed, run
 
 ```
-$ npm install dating-app
+$ npm install
 ```
 
 ## Dev
 Start server
 ``` 
-$ DEBUG=testgen:* npm start
-```
-
-Compile css 
-``` 
-$ npm run postcss 
+npm start
+npm run dev
+npm run sass
 ```
 
 ## Acknowledgments
