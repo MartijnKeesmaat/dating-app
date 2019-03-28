@@ -32,8 +32,10 @@
 			currentSet = sets[current];
 			currentSet.classList.add('active');
 		}
+		console.log(current + 1, sets.length);
 		if (current + 1 >= sets.length) {
-			$('.icebreaker h4').remove();
+			console.log('a');
+			$('.icebreaker .ice-sub').remove();
 			$('.icebreaker-option').remove();
 			$('.icebreaker h2').textContent = '🎉 Ice-breaker';
 		}

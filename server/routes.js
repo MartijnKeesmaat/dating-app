@@ -219,9 +219,9 @@ router.post('/icebreaker', urlencodedParser, (req, res) => {
 	if (!req.body) return res.sendStatus(400);
 	iceBreakerData.images = []; // reset data
 	iceBreakerData.images.push(
-		`/images/${req.body.q1}.jpg`,
-		`/images/${req.body.q2}.jpg`,
-		`/images/${req.body.q3}.jpg`
+		`/images/icebreaker/${req.body.q1}.jpg`,
+		`/images/icebreaker/${req.body.q2}.jpg`,
+		`/images/icebreaker/${req.body.q3}.jpg`
 	);
 	console.log(req.session.user);
 	res.render('my-profile', {

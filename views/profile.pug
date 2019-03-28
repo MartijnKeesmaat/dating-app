@@ -42,8 +42,8 @@ block content
       progress(value="16.6" max="100")
 
       .icebreaker__inner
-        h4 Set: 1 van de 3
         h2 Ice-breaker
+        p.ice-sub Which one do you prefer
         
         form(action="/icebreaker" method="post")
           .icebreaker-option or
@@ -51,53 +51,53 @@ block content
           fieldset(class="active")
             legend Activity
             
-            label(for="camping")
-              input(type="radio", name="q1", value="gym" id="camping" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
+            label(for="party")
+              input(type="radio", name="q1", value="party" id="party" class="ice-q")
+              img(src="/images/icebreaker/party.jpg" alt="party")
 
-            label(for="home")
-              input(type="radio", name="q1", value="camping", id="home" class="ice-q")
-              img(src="/images/camping.jpg" alt="camping")
+            label(for="camping")
+              input(type="radio", name="q1", value="camping", id="camping" class="ice-q")
+              img(src="/images/icebreaker/camping.jpg" alt="camping")
 
           fieldset
             legend Activity
-            label(for="workout")
-              input(type="radio", name="q2", value="yoga", id="workout" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
+            label(for="yoga")
+              input(type="radio", name="q2", value="yoga", id="yoga" class="ice-q")
+              img(src="/images/icebreaker/yoga.jpg" alt="yoga")
 
-            label(for="movie")
-              input(type="radio", name="q2", value="party" id="movie" class="ice-q")
-              img(src="/images/gym.jpg" alt="camping")
+            label(for="gym")
+              input(type="radio", name="q2", value="gym" id="gym" class="ice-q")
+              img(src="/images/icebreaker/gym.jpg" alt="gym")
 
           fieldset
             legend Pet
-            label(for="cat")
-              input(type="radio", name="q3", value="gym", id="cat" class="ice-q")
-              img(src="/images/yoga.jpg" alt="camping")
+            label(for="winter")
+              input(type="radio", name="q3", value="winter", id="winter" class="ice-q")
+              img(src="/images/icebreaker/winter.jpg" alt="winter")
 
-            label(for="dog")
-              input(type="radio", name="q3", value="camping" id="dog" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
+            label(for="desert")
+              input(type="radio", name="q3", value="desert" id="desert" class="ice-q")
+              img(src="/images/icebreaker/desert.jpg" alt="desert")
               
           fieldset
             legend Activity
-            label(for="workout")
-              input(type="radio", name="q2", value="yoga", id="workout" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
+            label(for="city")
+              input(type="radio", name="q4", value="city", id="city" class="ice-q")
+              img(src="/images/icebreaker/city.jpg" alt="city")
 
-            label(for="movie")
-              input(type="radio", name="q2", value="party" id="movie" class="ice-q")
-              img(src="/images/gym.jpg" alt="camping")
+            label(for="trees")
+              input(type="radio", name="q4", value="trees" id="trees" class="ice-q")
+              img(src="/images/icebreaker/flower-trees.jpg" alt="trees")
 
           fieldset
             legend Pet
-            label(for="cat")
-              input(type="radio", name="q3", value="gym", id="cat" class="ice-q")
-              img(src="/images/yoga.jpg" alt="camping")
+            label(for="cake")
+              input(type="radio", name="q5", value="cake", id="cake" class="ice-q")
+              img(src="/images/icebreaker/cake.jpg" alt="cake")
 
-            label(for="dog")
-              input(type="radio", name="q3", value="camping" id="dog" class="ice-q")
-              img(src="/images/party.jpg" alt="camping")
+            label(for="egg")
+              input(type="radio", name="q5", value="egg" id="egg" class="ice-q")
+              img(src="/images/icebreaker/egg.jpg" alt="egg")
 
           fieldset
             p.feedback Je hebt alle vragen beantwoord. Jouw ijsbreker zal worden verstuurd naar 

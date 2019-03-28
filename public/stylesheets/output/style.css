@@ -469,6 +469,7 @@ p {
 .iceBreakerData img {
   height: 200px;
   object-fit: cover;
+  width: 100%;
 }
 
 .during-conv {
@@ -620,7 +621,10 @@ p {
 .js-enabled .icebreaker__inner h2 {
   font-size: 2rem;
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0em;
+}
+.js-enabled .icebreaker__inner p {
+  margin-top: 5px;
 }
 .js-enabled .icebreaker__inner form fieldset {
   display: none;
@@ -642,6 +646,9 @@ p {
 }
 .js-enabled .icebreaker__inner form fieldset label img {
   max-width: 100%;
+  height: 172px;
+  object-fit: cover;
+  width: 100%;
 }
 .js-enabled .icebreaker__back {
   border: none;
