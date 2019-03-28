@@ -110,6 +110,22 @@ router.post('/update', function (req, res, next) {
 });
 
 
+router.post('/delete', function (req, res, next) {
+	mongo.connect(url, function (err, db) {
+		assert.equal(null, err);
+		db.collection('users').deleteOne({ '_id': objectId(req.user._id) }, function (err, result) {
+			assert.equal(null, err);
+			db.close();
+		});
+	});
+
+	res.redirect('/login');
+});
+
+
+
+
+
 
 // Create account
 router.post('/register', (req, res) => {
