@@ -70,4 +70,14 @@
 	function editOpen() {
 		$('body').classList.add('is-edit-open');
 	}
+
+
+	$('.start-convers').addEventListener('click', startConvers, false);
+
+	function startConvers() {
+		$('.before-conv').style.display = 'none';
+		$('.during-conv').style.display = 'block';
+		$('.conv__item--left').classList.add('fade-in');
+	}
+
 })();

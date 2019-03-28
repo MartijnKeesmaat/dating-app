@@ -264,3 +264,56 @@ main.main-content
   img
     height: 200px
     object-fit: cover
+
+
+.during-conv
+  display: none
+
+.conv
+  height: 300px
+  padding-top: 30px
+
+.conv__item
+  display: flex
+  align-items: center
+  margin-bottom: 15px
+
+  &--left
+    flex-direction: row-reverse
+
+    .conv__msg
+      border-bottom-left-radius: 40px
+      border-bottom-right-radius: 0
+      margin-left: 0
+      margin-right: 10px
+
+  img
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    object-fit: cover
+
+
+.conv__msg
+  border: rgba(155, 155, 183, 0.3) 1px solid
+  padding: 10px
+  border-radius: 40px
+  border-bottom-left-radius: 0
+  margin-left: 10px
+  position: relative
+  top: -5px
+
+
+.fade-in
+  animation: fade-in .3s 3s forwards
+  transform: translateY(10px)
+  opacity: 0
+
+@keyframes fade-in
+  from
+    transform: translateY(10px)
+    opacity: 0
+
+  to
+    transform: translateY(0px)
+    opacity: 1
