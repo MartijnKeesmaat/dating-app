@@ -91,6 +91,14 @@ label {
   opacity: 0.5;
 }
 
+.btn--delete {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  margin-top: 30px;
+  opacity: 0.5;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-body);

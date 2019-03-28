@@ -69,7 +69,7 @@ block content
   .edit-profile
     h2 Edit profile
 
-    form(action="/update" method="delete")
+    form(action="/update" method="post")
       label(for="name") Name
       input(type="text" name="name" value=user.name)
 
@@ -82,4 +82,4 @@ block content
       button.btn Save changes
 
     form(action="/delete" method="post")
-      button.btn--text delete profile
+      button.btn--text(class="btn--delete") delete profile
