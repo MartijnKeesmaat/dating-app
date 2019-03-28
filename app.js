@@ -21,10 +21,12 @@ db.once('open', function () {
 	console.log('Connected');
 });
 
+// Init middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// Init session
 app.set('trust proxy', 1); // trust first proxy
 app.use(session({
 	secret: 'keyboard poodle',
@@ -34,10 +36,11 @@ app.use(session({
 
 app.use(session({ secret: 'secret' }));
 
-
+// Init authorization
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Init form validation
 app.use(expressValidator({
 	errorFormatter: function (param, msg, value) {
 		const namespace = param.split('.'), root = namespace.shift();
@@ -57,6 +60,7 @@ app.use(expressValidator({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// Init middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({

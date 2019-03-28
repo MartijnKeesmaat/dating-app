@@ -6,7 +6,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const User = require('../models/user');
 const mongo = require('mongodb');
 const objectId = require('mongodb').ObjectID;
-// const session = require('express-session');
 const passport = require('passport');
 const assert = require('assert');
 const LocalStrategy = require('passport-local').Strategy;
