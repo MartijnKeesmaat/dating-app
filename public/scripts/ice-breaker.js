@@ -46,6 +46,7 @@
 	function closeBreaker() {
 		body.classList.remove('is-icebreaker-active');
 		body.classList.remove('is-icebreaker-r-active');
+		body.classList.remove('is-edit-open');
 	}
 
 
