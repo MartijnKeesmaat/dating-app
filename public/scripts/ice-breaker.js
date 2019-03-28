@@ -78,6 +78,7 @@
 		$('.before-conv').style.display = 'none';
 		$('.during-conv').style.display = 'block';
 		$('.conv__item--left').classList.add('fade-in');
+		$('.icebreaker-r button').textContent = 'Send friend request';
 	}
 
 })();
