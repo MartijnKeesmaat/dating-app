@@ -1,4 +1,3 @@
-const createError = require('http-errors');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
@@ -9,9 +8,8 @@ const app = express();
 const expressValidator = require('express-validator');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const flash = require('connect-flash');
+const createError = require('http-errors');
 
 // Connect to DB with Mongoose
 const url = 'mongodb://localhost:27017/icebreaker';
@@ -54,19 +52,6 @@ app.use(expressValidator({
 		};
 	}
 }));
-
-
-// Connect flash
-app.use(flash());
-
-// Set global vars
-app.use(function (req, res, next) {
-	res.locals.success_msg = req.flash('succes_msg');
-	res.locals.error_msg = req.flash('error_msg');
-	res.locals.error = req.flash('error');
-	res.locals.user = req.user || null;
-	next();
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
