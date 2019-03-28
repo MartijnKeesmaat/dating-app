@@ -99,6 +99,10 @@ label {
   opacity: 0.5;
 }
 
+textarea {
+  padding: 20px;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-body);
