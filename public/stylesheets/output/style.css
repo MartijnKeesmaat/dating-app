@@ -103,6 +103,20 @@ textarea {
   padding: 20px;
 }
 
+.upload-image-form {
+  display: flex;
+  margin-top: 10px;
+}
+.upload-image-form input {
+  margin: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.upload-image-form button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-body);
