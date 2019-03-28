@@ -17,11 +17,15 @@ With [npm](https://npmjs.org/) installed, run
 $ npm install
 ```
 
-## Dev
+## Run
 Start server
 ``` 
 npm start
-npm run dev
+```
+Run in dev environment
+
+```
+DEBUG=testgen:* npm start
 npm run sass
 ```
 
