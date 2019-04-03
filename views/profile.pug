@@ -11,9 +11,10 @@ block content
         small= user.job
 
       .profile-intro__right
-        img(src="/images/icons/heart.svg" alt="like")
-        img(src="/images/icons/chat.svg" alt="comment" class="icebreaker__open")
-        img(src="/images/icons/match-meter.svg" alt="match score")
+        if myProfile
+          img(src="/images/icons/heart.svg" alt="like")
+          img(src="/images/icons/chat.svg" alt="comment" class="icebreaker__open")
+          img(src="/images/icons/match-meter.svg" alt="match score")
 
     .profile-meta
       .profile-meta__item
@@ -49,7 +50,7 @@ block content
           .icebreaker-option or
 
           fieldset(class="active")
-            legend Activity
+            legend Choose one
             
             label(for="party")
               input(type="radio", name="q1", value="party" id="party" class="ice-q")
@@ -60,7 +61,7 @@ block content
               img(src="/images/icebreaker/camping.jpg" alt="camping")
 
           fieldset
-            legend Activity
+            legend Choose one
             label(for="yoga")
               input(type="radio", name="q2", value="yoga", id="yoga" class="ice-q")
               img(src="/images/icebreaker/yoga.jpg" alt="yoga")
@@ -70,7 +71,7 @@ block content
               img(src="/images/icebreaker/gym.jpg" alt="gym")
 
           fieldset
-            legend Pet
+            legend Choose one
             label(for="winter")
               input(type="radio", name="q3", value="winter", id="winter" class="ice-q")
               img(src="/images/icebreaker/winter.jpg" alt="winter")
@@ -80,7 +81,7 @@ block content
               img(src="/images/icebreaker/desert.jpg" alt="desert")
               
           fieldset
-            legend Activity
+            legend Choose one
             label(for="city")
               input(type="radio", name="q4", value="city", id="city" class="ice-q")
               img(src="/images/icebreaker/city.jpg" alt="city")
@@ -90,7 +91,7 @@ block content
               img(src="/images/icebreaker/flower-trees.jpg" alt="trees")
 
           fieldset
-            legend Pet
+            legend Choose one
             label(for="cake")
               input(type="radio", name="q5", value="cake", id="cake" class="ice-q")
               img(src="/images/icebreaker/cake.jpg" alt="cake")

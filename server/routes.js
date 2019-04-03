@@ -73,7 +73,8 @@ router.get('/users/:id', (req, res) => {
 
 			// Render page with data
 			res.render('profile', {
-				user
+				user,
+				myProfile: req.session.user || '',
 			});
 		});
 	});
@@ -205,6 +206,7 @@ router.post('/login',
 	});
 
 router.get('/logout', function (req, res) {
+	req.session.destroy();
 	req.logout();
 	res.redirect('/login');
 });
