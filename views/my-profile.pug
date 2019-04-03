@@ -26,6 +26,39 @@ block content
       .profile-meta__item
         h3 18km 
           small Distance                
+  
+    if iceBreakerData.images.length > 0
+      .ice-breaker--msg
+        p Leanne Graham heeft gereageerd
+
+      .icebreaker-r
+
+        .ice-breaker-r__inner
+          .before-conv
+            .ice-breaker-people
+              img(src='/images/users/2/display.jpg')
+              img(src=user.displayImage)
+
+            h2 Begin een gesprek
+            p= `Leanne Graham en jij vonden allebei deze onderwerpen interessant` 
+
+            .iceBreakerData
+              .iceBreakerData__comparison
+                each answer in iceBreakerData.images
+                  img(src=answer)
+
+          .during-conv
+            .conv
+
+              .conv__item
+                img(src=user.displayImage, alt="")
+                .conv__msg I see you like fitness ;)
+
+              div(class='conv__item conv__item--left')
+                img(src='images/users/2/display.jpg', alt="")
+                .conv__msg Omg! I do!
+
+        button(class="btn start-convers") Start conversation
 
     .profile-about
       h2 About me
@@ -44,38 +77,6 @@ block content
 
 
 
-  if iceBreakerData.images.length > 0
-    .ice-breaker--msg
-      p Leanne Graham heeft gereageerd
-
-    .icebreaker-r
-
-      .ice-breaker-r__inner
-        .before-conv
-          .ice-breaker-people
-            img(src='/images/users/2/display.jpg')
-            img(src=user.displayImage)
-
-          h2 Begin een gesprek
-          p= `Leanne Graham en jij vonden allebei deze onderwerpen interessant` 
-
-          .iceBreakerData
-            .iceBreakerData__comparison
-              each answer in iceBreakerData.images
-                img(src=answer)
-
-        .during-conv
-          .conv
-
-            .conv__item
-              img(src=user.displayImage, alt="")
-              .conv__msg I see you like fitness ;)
-
-            div(class='conv__item conv__item--left')
-              img(src='images/users/2/display.jpg', alt="")
-              .conv__msg Omg! I do!
-
-      button(class="btn start-convers") Start conversation
 
 
   .edit-profile

@@ -731,6 +731,9 @@ p {
     box-shadow: 0 0 0 0 rgba(253, 141, 129, 0);
   }
 }
+.no-js .icebreaker {
+  margin-top: 50px;
+}
 .no-js .icebreaker-option {
   display: none;
 }
@@ -750,6 +753,29 @@ p {
 .no-js .icebreaker input[type=radio]:checked ~ img {
   opacity: 1;
 }
+.no-js .icebreaker progress {
+  display: none;
+}
+.no-js .icebreaker fieldset {
+  margin-bottom: 40px;
+}
+.no-js .edit-profile {
+  padding: 40px;
+}
+.no-js .icebreaker-r {
+  padding: 15px 0;
+}
+.no-js .icebreaker-r button {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: lightgrey;
+  cursor: not-allowed;
+}
+.no-js .icebreaker-r button:hover {
+  background: lightgrey;
+}
 
 .main-nav {
   position: fixed;
@@ -759,6 +785,7 @@ p {
   background: #fff;
   display: flex;
   padding: 25px;
+  z-index: 1;
 }
 .main-nav ul {
   margin: 0;
