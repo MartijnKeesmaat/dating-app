@@ -228,9 +228,11 @@ p {
 }
 .profile-intro__right img {
   height: 25px;
+}
+.profile-intro__right a {
   margin-right: 15px;
 }
-.profile-intro__right img:last-child {
+.profile-intro__right a:last-child {
   margin-right: 0;
 }
 

@@ -12,9 +12,9 @@ block content
 
       .profile-intro__right
         if myProfile
-          img(src="/images/icons/heart.svg" alt="like")
-          img(src="/images/icons/chat.svg" alt="comment" class="icebreaker__open")
-          img(src="/images/icons/match-meter.svg" alt="match score")
+          a(href="#"): img(src="/images/icons/heart.svg" alt="like")
+          a(href="#icebreaker"): img(src="/images/icons/chat.svg" alt="comment" class="icebreaker__open")
+          a(href="#"): img(src="/images/icons/match-meter.svg" alt="match score")
 
     .profile-meta
       .profile-meta__item
@@ -39,7 +39,7 @@ block content
       each img in user.galleryImages
         img(src=img)
 
-    .icebreaker
+    article(class="icebreaker" id="icebreaker")
       progress(value="16.6" max="100")
 
       .icebreaker__inner
