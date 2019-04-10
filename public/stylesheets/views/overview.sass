@@ -14,8 +14,21 @@
     margin-top: 0
     margin-bottom: 30px
 
+.users
+  display: flex
+  flex-wrap: wrap
+
 .user
   margin-bottom: 20px
+  width: calc(50% - 40px)
+  margin-right: 20px
+
+  &:nth-child(even)
+    margin-right: 0
+
+  @media (max-width: 780px)
+    width: 100%
+    margin-right: 0
 
   &__info
     display: flex

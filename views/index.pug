@@ -6,10 +6,11 @@ block content
     h2 Vind partners
     h1 Zoeken
 
-    each user in users
-      article.user
-        a(href='/users/' + user._id)
-          img(class="user__display" src=user.displayImage)
+    .users
+      each user in users
+        article.user
+          a(href='/users/' + user._id)
+            img(class="user__display" src=user.displayImage)
           
           .user__info
             .user__desc

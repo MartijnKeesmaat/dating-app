@@ -23,7 +23,7 @@ body {
 }
 
 main.main-content {
-  max-width: 1000px;
+  max-width: 700px;
   padding: 45px;
   margin: 0 auto;
 }
@@ -61,6 +61,8 @@ input::placeholder, textarea::placeholder {
 
 .login-wrapper {
   padding: 40px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 label {
@@ -158,8 +160,24 @@ p {
   margin-bottom: 30px;
 }
 
+.users {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .user {
   margin-bottom: 20px;
+  width: calc(50% - 40px);
+  margin-right: 20px;
+}
+.user:nth-child(even) {
+  margin-right: 0;
+}
+@media (max-width: 780px) {
+  .user {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 .user__info {
   display: flex;
