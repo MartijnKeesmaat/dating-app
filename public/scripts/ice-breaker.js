@@ -80,6 +80,7 @@
 		$('.before-conv').style.display = 'none';
 		$('.during-conv').style.display = 'block';
 		$('.conv__item--left').classList.add('fade-in');
+		$('.conv__item--resp').classList.add('fade-in-2');
 		$('.icebreaker-r button').textContent = 'Send friend request';
 	}
 

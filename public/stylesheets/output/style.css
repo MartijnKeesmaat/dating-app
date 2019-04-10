@@ -538,6 +538,12 @@ p {
   opacity: 0;
 }
 
+.fade-in-2 {
+  animation: fade-in 0.3s 5s forwards;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
 @keyframes fade-in {
   from {
     transform: translateY(10px);
