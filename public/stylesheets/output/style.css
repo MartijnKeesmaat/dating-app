@@ -335,6 +335,7 @@ p {
   text-align: center;
   transition: 0.6s all ease;
   top: 0;
+  left: 0;
 }
 .ice-breaker--msg p {
   margin: 0;
@@ -621,7 +622,8 @@ p.chat-msg-js {
   left: 0;
   right: 0;
   margin: 0 auto;
-  top: 56.5%;
+  top: 51%;
+  z-index: 10;
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
@@ -633,7 +635,8 @@ p.chat-msg-js {
   margin: 0;
 }
 .js-enabled .icebreaker input {
-  margin-bottom: 5px;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 .js-enabled .icebreaker__inner {
   padding: 40px 45px;
@@ -812,6 +815,22 @@ p.chat-msg-js {
 }
 .no-js .icebreaker-r button:hover {
   background: lightgrey;
+}
+
+.js-enabled .icebreaker-sets {
+  width: 600%;
+  display: flex;
+  transition: 0.5s all ease;
+  /* transform: translateX(-310px); */
+}
+.js-enabled .icebreaker__inner fieldset {
+  width: 310px;
+  height: 350px;
+  display: block !important;
+}
+.js-enabled .icebreaker-sets-container {
+  height: 350px;
+  overflow: hidden;
 }
 
 .main-nav {

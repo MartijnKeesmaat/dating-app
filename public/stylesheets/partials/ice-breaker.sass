@@ -49,7 +49,8 @@
       left: 0
       right: 0
       margin: 0 auto
-      top: 56.5%
+      top: 51%
+      z-index: 10
       transform: translateY(-50%)
       display: flex
       justify-content: center
@@ -61,7 +62,8 @@
       margin: 0
 
     input
-      margin-bottom: 5px
+      margin-top: 15px
+      margin-bottom: 0
 
     &__inner
       padding: 40px 45px 
@@ -249,3 +251,20 @@
 
       &:hover
         background: lightgrey
+
+
+.js-enabled 
+  .icebreaker-sets  
+    width: 600%
+    display: flex
+    transition: .5s all ease
+    /* transform: translateX(-310px); */
+
+  .icebreaker__inner fieldset
+    width: 310px
+    height: 350px
+    display: block !important
+
+  .icebreaker-sets-container
+    height: 350px
+    overflow: hidden
