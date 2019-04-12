@@ -21,47 +21,20 @@
 	$$('.icebreaker .ice-q').forEach(i => i.addEventListener('click', nextQuestion, false));
 	const sets = $$('fieldset');
 	let current = 0;
-	let currentSet = sets[current];
-
-
-	// Show next set
-	// function nextQuestion() {
-	// 	current++;
-	// 	if (current < sets.length) {
-	// 		currentSet.classList.remove('active');
-	// 		currentSet = sets[current];
-	// 		currentSet.classList.add('active');
-	// 	}
-	// 	console.log(current + 1, sets.length);
-	// 	if (current + 1 >= sets.length) {
-	// 		console.log('a');
-	// 		$('.icebreaker .ice-sub').remove();
-	// 		$('.icebreaker-option').remove();
-	// 		$('.icebreaker h2').textContent = '🎉 Ice-breaker';
-	// 	}
-	// 	// let currentProgress = $('progress').value;
-	// 	$('progress').value = $('progress').value + 16.6;
-	// }
 
 	let translate = 0;
 	function nextQuestion() {
 		current++;
 		translate = translate - 310;
-		console.log(translate);
 		if (current < sets.length) {
 			$('.icebreaker-sets').style.transform = `translateX(${translate}px)`;
-			// currentSet.classList.remove('active');
-			// currentSet = sets[current];
-			// currentSet.classList.add('active');
 		}
-		console.log(current + 1, sets.length);
 		if (current + 1 >= sets.length) {
 			console.log('a');
 			$('.icebreaker .ice-sub').remove();
 			$('.icebreaker-option').remove();
 			$('.icebreaker h2').textContent = '🎉 Ice-breaker';
 		}
-		// let currentProgress = $('progress').value;
 		$('progress').value = $('progress').value + 16.6;
 	}
 
